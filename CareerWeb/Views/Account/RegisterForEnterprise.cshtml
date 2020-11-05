@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Assets/Client/Css/Register/RegisterForEnterprise1.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <title>RegisterForEnterprise</title>
+</head>
+<body>
+    <div id="choose-box-first">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <span>Tài khoản : </span><br />
+        <input type="text" placeholder="abcd@gmail.com" id="email" /><br />
+        <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
+        <span>Mật khẩu : </span><br />
+        <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
+        <div id="alert-error-pass" class="alert-error" style="top: 190px;">Nhập mật khẩu quá ít ký tự</div>
+        <span>Nhập lại mật khẩu : </span><br />
+        <input type="password" id="retype" /><br />
+        <div id="alert-error-retype" class="alert-error" style="top: 275px;">Mật khẩu không trùng khớp</div>
+        <button id="submit-first">SUBMIT</button><br />
+        <span id="title-vertify">Nhập mã xác nhận chúng tôi đã gửi đến email của bạn : </span><br />
+        <input type="text" id="codeVertify" placeholder="Nhập 6 chữ số trong mã code" />
+        <button id="submit-second">SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="choose-box-second">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <div class="container-input">
+            <span>Tên doanh nghiệp : </span><br />
+            <input type="text" id="enterpriseName" />
+        </div>
+        <div class="container-input">
+            <span>Logo : </span><br />
+            <img id="targetImg" alt="" />
+            <div id="container-button">
+                <input type="file" id="imageBrowse" />
+                <input type="button" value="Upload" id="chooseImage" />
+                <input type="button" value="Submit" id="uploadImage" />
+            </div>
+        </div>
+        <div class="container-input">
+            <span>Số điện thoại : </span><br />
+            <input type="text" value="" id="mobile" placeholder="0123456789" />
+        </div>
+        <div class="container-input">
+            <span>Năm thành lập : </span><br />
+            <input id="establishYear" type="number" value="" />
+        </div>
+        <div class="container-input" style="width: 38% !important;">
+            <span>Quy mô công ty : </span><br />
+            <select id="enterprise-size">
+                @foreach (var item in ViewBag.ListEnterpriseSize)
+                {
+                    <option value="@item.SizeID">@item.AmountSize</option>
+                }
+            </select>
+        </div>
+        <div class="container-input" style="width: 38% !important;">
+            <span>Loại hình công ty : </span><br />
+            <select id="type-company">
+                @foreach (var item in ViewBag.ListTypeOfEnterprise)
+                {
+                    <option value="@item.TypeOfEnterpriseID">@item.NameOfEnterprise</option>
+                }
+            </select>
+        </div>
+        <div class="container-choose-major">
+            <span>Các chi nhánh : </span><br />
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên tỉnh thành" class="search" id="search-area" value="" />
+                <div class="container-suggest" id="suggest-area">
+                </div>
+            </div>
+            <div class="container-option" id="option-area">
+            </div>
+            <div class="hr-line"></div>
+        </div>
+        <div id="container-choose-major-important" class="container-choose-major">
+            <div class="major-title">Chuyên ngành, ngành nghề chính</div>
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên ngành nghề..." class="search" id="search-important" value="" />
+                <div class="add-more" atr="job-imp">+</div>
+                <div class="container-suggest" id="suggest-important">
+                </div>
+            </div>
+            <div class="container-option" id="option-important">
+            </div>
+            <div class="hr-line"></div>
+        </div>
+        <div id="container-choose-major-sub" class="container-choose-major">
+            <div class="major-title">Chuyên ngành, ngành nghề phụ</div>
+            <div class="container-search">
+                <input type="text" placeholder="Nhập tên ngành nghề..." class="search" id="search-sub" value="" />
+                <div class="add-more" atr="job-sub">+</div>
+                <div class="container-suggest" id="suggest-sub">
+                </div>
+            </div>
+            <div class="container-option" id="option-sub">
+            </div>
+            <div class="hr-line"></div>
+        </div>
+        <button>SUBMIT</button>
+        <div id="cover">
+            <div id="container-add">
+                <div id="add-title">Thêm ngành nghề doanh nghiệp</div>
+                <input type="text" placeholder="Nhập tên ngành nghề của doanh nghiệp" />
+                <input type="submit" job-id="" value="SUBMIT" id="add" />
+                <input type="submit" value="CANCEL" id="cancel" />
+                <div id="note">
+                    Note <span style="color: red">*</span> : Thêm khi không tìm thầy ngành nghề phù hợp trong
+                    thanh tìm kiếm
+                </div>
+            </div>
+        </div>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="finish-box">
+        <div class="title">Đăng ký thành công</div>
+        <div id="text">
+            Bạn đã đăng ký thành công tài khoản và hoàn thành những thông tin cơ bản của mình.
+            Trang web sẽ chuyển hướng đến trang chủ sau vài giây nữa, mong rằng bạn sẽ có những
+            trải nghiệm thú vị và tìm được công việc phù hợp cùng với tên trang web.
+        </div>
+        <div id="hr-line"></div>
+    </div>
+    <script src="~/Assets/Client/Js/Register/RegisterForEnterprise.js"></script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../../Img/Common/backgroundRegister.jpg');
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.title {
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    font-size: 20pt;
+    line-height: 2.3;
+    border-bottom: 2px solid black;
+    color: #943121;
+}
+#choose-box-first {
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+    #choose-box-first span {
+        margin-left: 50px;
+        font-size: 18pt;
+    }
+
+    #choose-box-first input {
+        margin-left: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: calc(100% - 100px);
+        height: 30px;
+        border-radius: 5px;
+        font-size: 13pt;
+    }
+
+    #choose-box-first button {
+        margin-left: calc(50% - 40px);
+        margin-top: 10px;
+        width: 80px;
+        height: 40px;
+        cursor: pointer;
+        background-color: forestgreen;
+        color: white;
+        font-weight: bold;
+        outline: none;
+        border-radius: 10px;
+    }
+.alert-error {
+    position: absolute;
+    left: 55%;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    height: 20px;
+    border: 0.5px solid black;
+    font-weight: lighter;
+    border-radius: 5px;
+    background-color: white;
+    display: none;
+}
+
+.correctInput {
+    background-color: #a1eb86;
+}
+
+.errorEmail {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorPass {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorRetype {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorEmail:hover ~ #alert-error-email {
+    display: block;
+}
+
+.errorPass:hover ~ #alert-error-pass {
+    display: block;
+}
+
+.errorRetype:hover ~ #alert-error-retype {
+    display: block;
+}
+
+#choose-box-first #title-vertify {
+    font-size: 13pt;
+    display: none;
+}
+
+#choose-box-first #codeVertify {
+    display: none;
+}
+
+#choose-box-first #submit-second {
+    display: none;
+}
+
+.cover-load {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: none;
+    opacity: 0.8;
+    display: none;
+}
+
+#choose-box-second {
+    width: 600px;
+    height: 615px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: calc(50% - 300px);
+    margin-top: 20px;
+    float: left;
+    position: relative;
+    overflow-y: auto;
+    display: none;
+}
+
+    #choose-box-second .container-input {
+        width: 80%;
+        float: left;
+        height: auto;
+        margin-left: 10%;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+        #choose-box-second .container-input select {
+            width: 88%;
+            margin-top: 10px;
+            min-height: 35px;
+            height: auto;
+            font-size: 14pt;
+        }
+
+    #choose-box-second span {
+        font-size: 18pt;
+    }
+
+    #choose-box-second .container-input input[type = "text"], input[type = "number"] {
+        font-size: 15pt;
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+    }
+    #choose-box-second #cover{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        background-color: rgba(0,0,0,0.2);
+        display: none;
+    }
+    #choose-box-second #cover #container-add{
+        width: 500px;
+        height: 250px;
+        background-color: white;
+        box-shadow: rgba(0,0,0,0.4) 1px 1px 1px 1px;
+        margin: auto;
+        margin-top: 200px;
+    }
+#container-add #add-title {
+    width: calc(100% - 5px);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    font-size: 15pt;
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    color: #a8aaad;
+    font-weight: bold;
+}
+#container-add input[type="text"] {
+    float: left;
+    width: 53%;
+    height: 28px;
+    font-size: 11pt;
+    margin-top: 40px;
+    margin-left: 8%;
+}
+#container-add input[type="submit"] {
+    float: left;
+    height: 33px;
+    background-color: rgb(77, 120, 240);
+    color: white;
+    border: none;
+    margin-top: 40px;
+    margin-left: 8px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+#container-add #note{
+    float: left;
+    margin-left: 8%;
+    margin-top: 15px;
+}
+.container-input #container-button {
+    float: left;
+    height: auto;
+    width: 100px;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+    .container-input #container-button input[type = "button"] {
+        float: left;
+        width: 100%;
+        height: 35px;
+        margin-top: 10px;
+        font-size: 12pt;
+        font-weight: bold;
+        color: white;
+        background-color: #b5b4b1;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .container-input #container-button input[type = "button"]:hover {
+            background-color: #d6d6d4;
+        }
+
+#imageBrowse {
+    display: none;
+}
+
+.container-input #targetImg {
+    float: left;
+    width: 130px;
+    height: 130px;
+    border: 1px solid black;
+    margin-top: 15px;
+    margin-left: 58px;
+}
+.container-choose-major {
+    width: calc(80% + 6px);
+    height: auto;
+    position: relative;
+    float: left;
+    margin-left: 10%;
+    margin-bottom: 20px;
+}
+
+.container-search {
+    float: left;
+    width: 45%;
+    height: auto;
+    margin-top: 10px;
+}
+
+    .container-search .search {
+        float: left;
+        width: 80%;
+        height: 25px;
+        font-size: 12pt;
+    }
+
+    .container-search .container-suggest {
+        width: 82%;
+        float: left;
+        border: 1px solid rgba(0,0,0,0.2);
+        border-top: none;
+        height: auto;
+        max-height: 135px;
+        overflow-y: auto;
+    }
+
+    .container-search .add-more {
+        float: left;
+        width: 12%;
+        height: 31px;
+        font-size: 20pt;
+        background-color: cornflowerblue;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        cursor: pointer;
+        line-height: 1.2;
+    }
+
+.container-option {
+    width: 52%;
+    height: 165px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 0px;
+    border: 1px solid rgba(0,0,0,0.4);
+    border-radius: 5px;
+    overflow-y: auto;
+}
+
+.major-title {
+    font-size: 18pt;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hr-line {
+    float: left;
+    margin-top: 30px;
+    width: 70%;
+    margin-left: 15%;
+    height: 1px;
+    background-color: black;
+}
+
+.list-sg {
+    width: calc(100% - 5px);
+    height: auto;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.15s;
+}
+
+    .list-sg:hover {
+        background-color: rgb(107, 134, 242);
+        color: white;
+    }
+
+.container-option .option-choosed {
+    width: auto;
+    height: auto;
+    padding: 3px 6px 3px 6px;
+    border-radius: 5px;
+    float: left;
+    background-color: rgba(69, 69, 214, 0.8);
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.container-option .option-add {
+    width: auto;
+    height: auto;
+    padding: 3px 6px 3px 6px;
+    border-radius: 5px;
+    float: left;
+    background-color: green;
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+    .container-option .option-choosed span, .container-option .option-add span {
+        background-color: white;
+        float: left;
+        font-size: 9pt !important;
+        margin-left: 10px;
+        color: gray;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        width: 16px;
+        height: 16px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 2px;
+        cursor: pointer;
+    }
+
+    .container-option .option-choosed div, .container-option .option-add div{
+        float: left;
+    }
+
+#choose-box-second button {
+    margin-left: calc(50% - 40px);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    background-color: forestgreen;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 10px;
+}
+#finish-box {
+    width: 500px;
+    height: 360px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: calc(50% - 250px);
+    margin-top: 110px;
+    float: left;
+    display: none;
+}
+
+    #finish-box #text {
+        width: 84%;
+        margin-left: 8%;
+        margin-top: 20px;
+        font-size: 15pt;
+        text-align: justify;
+    }

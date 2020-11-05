@@ -1,0 +1,192 @@
+﻿@*@model List<Model.EF.OfferJob>*@
+@model PagedList.IPagedList<Model.EF.OfferJob>
+@using PagedList
+@using PagedList.Mvc
+@using Model.Dao
+@{
+    ViewBag.Title = "SearchJobForUser";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var OfferJobDao = new OfferJobDao();
+    var OfferJobSkillDao = new OfferJobSkillDao();
+    var EnterpriseDao = new EnterpriseDao();
+    var SalaryDao = new SalaryDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/SearchJobForUser.css" rel="stylesheet" />
+}
+
+
+<div id="bannerHeader">
+    <div id="letterHeader">
+        <div style="font-size:2.5vw; font-weight: 800; z-index: 1; margin-left: 40px">
+            Go further. Dream bigger. Work better
+        </div>
+        <div style="font-size: 1.7vw; font-weight: 300; z-index: 1; margin-left: 79px">
+            A better career is out there.
+            We'll help you find it to use.
+        </div>
+    </div>
+    <div id="pathHeader"><span id="homeLetter">Home</span> > All Jobs</div>
+</div>
+<div id="criteriaSelected">
+    <form>
+        <input type="text" name="jobBrowser" class="jobBrowser" style="height: 3em;"
+               placeholder="Job Title, positon, skill...">
+    </form>
+    <form>
+        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" name="OfferMajor" list="OfferMajor" id="as" />
+        <datalist id="OfferMajor" style="height:5.1em">
+            @foreach (var item in ViewBag.ListJobMain)
+            {
+                <option value="@item.JobName" data-id="@item.JobID" />
+            }
+        </datalist>
+    </form>
+    <form>
+        <input list="ListArea" name="ListArea" class="jobBrowser" style="height: 3em;"
+               placeholder="All state" id="bs">
+        <datalist id="ListArea">
+            @foreach (var item in ViewBag.ListArea)
+            {
+                <option value="@item.NameArea" data-id="@item.AreaId" />
+            }
+
+        </datalist>
+    </form>
+    <div id="findIcon"></div>
+</div>
+<div id="clearAll" onclick="reload()">Clear all</div>
+<div>
+    <div id="colJobLeftMenu">
+
+        <div id="salary" class="borderColJobMenu" style="margin-top: 2em;">
+            <div class="colClick" style="display: inline-flex;">
+                Lương (tháng) <i class='fas fa-angle-down'
+                                 style="position: absolute; float: right; margin-left: 75%; padding-top: 5px"></i>
+            </div>
+            <form style="font-size: 1.2em; margin-left: 0.3em;">
+                @foreach (var item in ViewBag.ListSalary)
+                {
+                    <input type="radio" name="selectSalary" value="@item.ID" style="margin-right: 10px;" /> @item.Amount<br />
+                }
+            </form>
+        </div>
+        <div id="careerLevel" class="borderColJobMenu" style="margin-top: 2em; ">
+            <div class="colClick" style="display: inline-flex;">
+                Vị trí công việc <i class='fas fa-angle-down'
+                                    style="position: absolute; float: right;margin-left: 75%; padding-top: 5px"></i>
+            </div>
+            <form style="font-size: 1.2em; margin: 0.3em;">
+                @foreach (var item in ViewBag.ListPositionEmployee)
+                {
+                    <input type="radio" name="selectPosition" value="@item.ID" style="margin-right: 10px;" /> @item.NamePosition<br />
+                }
+            </form>
+        </div>
+        <div id="experience" class="borderColJobMenu" style="margin-top: 2em;">
+            <div class="colClick" style="display: inline-flex;">
+                Kinh nghiệm <i class='fas fa-angle-down'
+                               style="position: absolute; float: right; margin-left: 75%; padding-top: 5px"></i>
+            </div>
+            <form style="font-size: 1.2em; margin: 0.3em;">
+                @foreach (var item in ViewBag.ListExperience)
+                {
+                    <input type="radio" name="selectExperience" value="@item.ID" style="margin-right: 10px;" /> @item.Time<br />
+                }
+            </form>
+        </div>
+        <div id="gender" class="borderColJobMenu" style="margin-top: 2em;">
+            <div class="colClick" style="display: inline-flex;">
+                Giới tính <i class='fas fa-angle-down'
+                             style="position: absolute; float: right; margin-left: 75%; padding-top: 5px"></i>
+            </div>
+            <form style="font-size: 1.2em; margin: 0.3em;">
+                <input type="radio" name="selectGender" value="male"> Nữ<br>
+                <input type="radio" name="selectGender" value="female"> Nam<br>
+            </form>
+        </div>
+        <div id="education" class="borderColJobMenu" style="margin-top: 2em;">
+            <div class="colClick" style="display: inline-flex;">
+                Trình độ <i class='fas fa-angle-down'
+                            style="position: absolute; float: right; margin-left: 75%; padding-top: 5px"></i>
+            </div>
+            <form style="font-size: 1.2em; margin: 0.3em;">
+                @foreach (var item in ViewBag.ListLevelLearning)
+                {
+                    <input type="radio" name="selectLevel" value="@item.ID" style="margin-right: 10px;" /> @item.NameLevel<br />
+                }
+            </form>
+        </div>
+    </div>
+    <div id="colJobRightMenu">
+        @if (Model != null && Model.Count != 0)
+        {
+            <div id="showResult"> Tìm thấy @Model.TotalItemCount kết quả</div>
+        }
+        else
+        {
+            <div id="showResult"> Không tìm thấy công việc như yêu cầu</div>
+        }
+        <div style="margin-bottom: 5em;"></div>
+
+        @if (Model != null && Model.Count != 0)
+        {
+            foreach (var item in Model)
+            {
+                var linkImage = item.OfferImage;
+                <a href="/OfferDetail/@item.OfferID" style="color: black; text-decoration: none;">
+                    <div class="jobContainer" >
+                        <div id="@item.OfferID"></div>
+                        <div class="logo">
+                            <img src="@linkImage" alt="" />
+                        </div>
+                        <div style="margin-left: 1.5em">
+                            <div class="jobName">
+                                <div class="textOverflowLine">@item.OfferName</div>
+                            </div>
+                            <div class="companyName">
+                                <div class="textOverflowLine">
+                                    <i class="fa fa-building"></i>
+                                    <b>Công ty:</b>
+                                    <span>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</span>
+                                </div>
+                            </div>
+                            <div class="address">
+                                <div class="textOverflowLine">
+                                    <i class="fa fa-map-marker"></i>
+                                    <b>Nơi làm việc:</b>
+                                    <span>@item.JobAddress</span>
+                                </div>
+                            </div>
+                            <div class="salary">
+                                <div class="textOverflowLine">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <b>Lương:</b>
+                                    <span>@(SalaryDao.AmountSalary(item.OfferSalary))</span>
+                                    <span>USD</span>
+                                </div>
+                            </div>
+                            <div class="deadline">
+                                <i class="far fa-calendar-alt"></i>
+                                <b>Hạn nộp:</b>
+                                <span>@item.OfferLimitDate</span>
+                            </div>
+                            <div class="reward">
+                                <i class="fa fa-gift"></i>
+                                <b>Thưởng:</b>
+                                <span>@(item.Bonus != null ? item.Bonus : "0") USD</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            }
+
+        }
+        @Html.PagedListPager(Model, page => Url.Action("SearchJobForUser", new { page }))
+    </div>
+
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/SearchJobForUser.js"></script>
+}

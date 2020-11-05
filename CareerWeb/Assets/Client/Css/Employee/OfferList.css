@@ -1,0 +1,301 @@
+﻿#container-title{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+#container-title #button-new{
+    float: left;
+    padding: 8px 9px 8px 9px;
+    border-radius: 5px;
+    background-color: #539afc;
+    cursor:pointer;
+    color: white;
+}
+    #container-title #button-new:hover {
+        background-color: #82b4fa;
+    }
+#container-title span{
+    float: left;
+    margin-top: 8px;
+    margin-left: 15px;
+}
+#container-offer{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+}
+.each-offer{
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+    height: auto;
+    float: left;
+    margin-top: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    cursor: pointer;
+}
+.each-offer:hover{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.7);
+}
+    .each-offer .contain-left {
+        float: left;
+        height: auto;
+        width: 20%;
+    }
+.each-offer .contain-left img{
+    float: left;
+    margin-top: 15px;
+    width: 180px;
+    height: 130px;
+    margin-left: 5%;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 3px; 
+    margin-bottom: 15px;
+}
+.each-offer .contain-mid{
+    float: left;
+    height: 100%;
+    width: 60%;
+}
+.each-offer .contain-mid .name-offer{
+    float: left;
+    width: 80%;
+    font-size: 15pt;
+    font-weight: 700;
+    margin-left: 6px;
+    margin-top: 8px;
+}
+.each-offer .offer-major, .each-offer .position-offer, .each-offer .email-offer, .each-offer .offer-time{
+    float:left;
+    width: 80%;
+    font-size: 11pt;
+    margin-left: 6px;
+}
+.each-offer .contain-some-infor{
+    float: left;
+    width: 80%;
+    font-size: 10pt;
+    margin-left: 6px;
+}
+.contain-some-infor .offer-salary, .contain-some-infor .offer-area, .contain-some-infor .offer-amount{
+    float: left;
+    margin-right: 8px;
+    font-weight: 600;
+}
+.each-offer .contain-right{
+    float: left;
+    height: 100%;
+    width: 20%;
+}
+.contain-right .up-right {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.contain-right .down-right {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+.up-right .offer-view, .up-right .offer-apply {
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    height: 80px;
+    border-radius: 5px;
+    background-color: #f7ba5e;
+    text-align: center;
+    font-size: 11pt;
+    color: white;
+    font-weight: 600;
+}
+.up-right .offer-view div, .up-right .offer-apply div{
+    font-size: 25pt;
+    color: #f76f00;
+}
+.down-right .edit-offer {
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    height: 40px;
+    background-color: #5e9bf7;
+    color: white;
+    text-align: center;
+    line-height: 2.3;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.down-right .delete-offer {
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    height: 40px;
+    background-color: #a5a8ad;
+    color: #6b6b6b;
+    text-align: center;
+    line-height: 2.3;
+    font-weight: 600;
+    border-radius: 5px;
+}
+#cover-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
+#box-create{
+    width: 60%;
+    height: 550px;
+    position: absolute;
+    top: 20px;
+    left: 20%;
+    background-color: white;
+    float: left;  
+}
+#box-create #box-header{
+    width: 100%;
+    height: auto;
+    padding-left: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid rgba(0,0,0,0.4);
+    font-weight: 700;
+}
+#box-create #box-main{
+    width: 100%;
+    height: 82%;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    overflow-y: auto;
+    float: left;
+}
+#box-create .each-part{
+    float: left;
+    width: calc(50% - 8px);
+    margin-top: 20px;
+    padding-left: 8px;
+    font-size: 10pt;
+}
+#box-create .each-part label{
+    float:left;
+    width: 33%;
+}
+#box-create .each-part input[type='text'], #box-create .each-part input[type='tel'], #box-create .each-part select{
+    float: left;
+    width: 66%;
+    height: 30px;
+}
+label span{
+    color: red;
+}
+#box-create .each-part-big{
+    float: left;
+    width: calc(100% - 8px);
+    margin-top: 30px;
+    padding-left: 8px;
+    font-size: 10pt;
+}
+#box-create .each-part-big .part-left{
+    float: left;
+    width: 30%;
+}
+.part-left input{
+    width: 95%;
+    height: 30px;
+}
+#box-create .each-part-big .part-right{
+    float: left;
+    width: 67%;
+    margin-left: 1%;
+}
+.part-right #container-skill{
+    width: 100%;
+    height: 180px;
+    margin-top: 28px;
+    overflow-y: auto;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+textarea{
+    resize: none;
+}
+#display-image {
+    float: left;
+    margin-right: 30px;
+    width: 200px;
+    height: 120px;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+#display-image img{
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+#img-upload{
+    float: left;
+    width: 80px;
+    height: 40px;
+    background-color: #a5a8ad;
+    text-align: center;
+    line-height: 2.9;
+    font-weight: 600;
+    cursor: pointer;
+}
+#box-footer{
+    float: left;
+    width: 100%;
+}
+#box-footer .button-offer{
+    width: 85px;
+    height: 40px;
+    background-color: aqua;
+    float: right;
+    margin-right: 20px;
+    margin-top: 12px;
+    border-radius: 6px;
+    text-align: center;
+    background-color: #276cdb;
+    color: white;
+    font-weight: 600;
+    line-height: 2.3;
+    cursor: pointer;
+}
+#box-footer #cancel{
+    background-color: #a5a8ad;
+}
+#box-footer #cancel:hover {
+    background-color: #c7ccd4;
+}
+#box-footer #both-input:hover {
+    background-color: #5e9cff;
+}
+#container-skill .each-skill {
+    float: left;
+    padding: 3px 10px 3px 10px;
+    background-color: #52a7f7;
+    margin-left: 5px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+#container-skill .each-skill-save {
+    float: left;
+    padding: 3px 10px 3px 10px;
+    background-color: #c8cfca;
+    margin-left: 5px;
+    color: black;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.each-skill .name-skill, .each-skill-save .name-skill{
+    float: left;
+}
+
+.each-skill .delete-skill, .each-skill-save .delete-skill{
+    float: left;
+    margin-left: 8px;
+    cursor: pointer;
+    margin-top: -1px;
+}

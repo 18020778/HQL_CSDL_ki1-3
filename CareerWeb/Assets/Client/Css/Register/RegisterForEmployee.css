@@ -1,0 +1,215 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    background-image: url('../../Img/Common/backgroundRegister.jpg');
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+optgroup {
+    max-height: 60px !important;
+}
+
+#choose-box-first {
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+    #choose-box-first span {
+        margin-left: 50px;
+        font-size: 18pt;
+    }
+
+    #choose-box-first input {
+        margin-left: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: calc(100% - 100px);
+        height: 30px;
+        border-radius: 5px;
+        font-size: 13pt;
+    }
+
+    #choose-box-first button {
+        margin-left: calc(50% - 40px);
+        margin-top: 10px;
+        width: 80px;
+        height: 40px;
+        cursor: pointer;
+        background-color: forestgreen;
+        color: white;
+        font-weight: bold;
+        outline: none;
+        border-radius: 10px;
+    }
+
+.title {
+    text-align: center;
+    width: 100%;
+    height: 70px;
+    font-size: 20pt;
+    line-height: 2.5;
+    border-bottom: 2px solid black;
+    color: #943121;
+}
+
+.alert-error {
+    position: absolute;
+    left: 55%;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: auto;
+    height: 20px;
+    border: 0.5px solid black;
+    font-weight: lighter;
+    border-radius: 5px;
+    background-color: white;
+    display: none;
+}
+
+.correctInput {
+    background-color: #a1eb86;
+}
+
+.errorEmail {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorPass {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorRetype {
+    background-color: #fca495;
+    cursor: pointer;
+}
+
+.errorEmail:hover ~ #alert-error-email {
+    display: block;
+}
+
+.errorPass:hover ~ #alert-error-pass {
+    display: block;
+}
+
+.errorRetype:hover ~ #alert-error-retype {
+    display: block;
+}
+
+#choose-box-first #title-vertify {
+    font-size: 13pt;
+    display: none;
+}
+
+#choose-box-first #codeVertify {
+    display: none;
+}
+
+#choose-box-first #submit-second {
+    display: none;
+}
+
+.cover-load {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: none;
+    opacity: 0.8;
+    display: none;
+}
+/**/
+#choose-box-second {
+    width: 700px;
+    height: 545px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: calc(50% - 350px);
+    margin-top: 20px;
+    float: left;
+    position: relative;
+    box-shadow: 0 0 10px black;
+    display: none;
+}
+
+    #choose-box-second .container-input {
+        width: 50%;
+        float: left;
+        height: 90px;
+    }
+
+    #choose-box-second span {
+        font-size: 18pt;
+        margin-left: 10%;
+    }
+
+    #choose-box-second .container-input input[type = "text"] {
+        font-size: 15pt;
+        width: 80%;
+        height: 30px;
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+
+    #choose-box-second .container-input input[type = "radio"] {
+        font-size: 12pt;
+        margin-left: 10%;
+        margin-top: 10px;
+    }
+
+    #choose-box-second .container-input select {
+        width: 50px;
+        min-height: 35px;
+        margin-left: 10%;
+        margin-top: 10px;
+        font-size: 15pt;
+        float: left;
+    }
+
+
+
+
+    
+/**/
+#choose-box-second button {
+    margin-left: calc(50% - 40px);
+    margin-top: 25px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    background-color: forestgreen;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border-radius: 10px;
+}
+
+#finish-box {
+    width: 500px;
+    height: 360px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-left: calc(50% - 250px);
+    margin-top: 110px;
+    float: left;
+    display: none;
+}
+
+    #finish-box #text {
+        width: 84%;
+        margin-left: 8%;
+        margin-top: 20px;
+        font-size: 15pt;
+        text-align: justify;
+    }

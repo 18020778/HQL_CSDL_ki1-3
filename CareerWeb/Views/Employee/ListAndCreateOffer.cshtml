@@ -1,0 +1,221 @@
+﻿@model List<Model.EF.OfferJob>
+@using Model.Dao
+@{
+    ViewBag.Title = "Offer List";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    var JobMajorDao = new JobMajorDao();
+    var PositionEmployeeDao = new PositionEmployeeDao();
+    var SalaryDao = new SalaryDao();
+    var AreaDao = new AreaDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Employee/OfferList.css" rel="stylesheet" />
+   
+}
+<main style="float: left; width: 100%; padding-bottom: 20px;">
+    <div id="container-title">
+        <div id="button-new"><i class="fa fa-plus"></i> THÊM MỚI</div>
+        <span>Tạo đơn tuyển dụng mới</span>
+    </div>
+    <div id="container-offer">
+    @if (Model != null && Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            var linkImage = item.OfferImage != null ? item.OfferImage : "/Assets/Client/Img/Common/hiring-agencies.jpg";
+            <div class="each-offer">
+                <div class="contain-left">
+                    <img src="@linkImage" alt="" />
+                </div>
+                <div class="contain-mid">
+                    <div class="name-offer">@item.OfferName</div>
+                    <div class="offer-major">
+                        <span>Lĩnh vực: </span> @(JobMajorDao.NameJob(item.OfferMajor))
+                    </div>
+                    <div class="position-offer">
+                        <span>Vị trí tuyển dụng: </span> @(PositionEmployeeDao.NamePosition(item.OfferPosition))
+                    </div>
+                    <div class="email-offer">
+                        <span>Email liên hệ: </span> @item.ContactEmail
+                    </div>
+                    <div class="contain-some-infor">
+                        <div class="offer-salary">Mức lương: @(SalaryDao.NameSalary(item.OfferSalary))</div>
+                        <div class="offer-area">Khu vực: @(AreaDao.FindNameArea(item.Area))</div>
+                        <div class="offer-amount">Số lượng tuyển dụng: @item.Amount</div>
+                    </div>
+                    <div class="offer-time">
+                        <span>Thời gian tuyển dụng: </span> @(item.OfferCreateDate.ToString("dd/MM/yyyy") + " - " + item.OfferLimitDate.ToString("dd/MM/yyyy"));
+                    </div>
+                </div>
+                <div class="contain-right">
+                    <div class="up-right">
+                        <div class="offer-view">
+                           <div> @item.Views</div>
+                           Lượt xem
+                        </div>
+                        <div class="offer-apply">
+                           <div> @item.Applications</div>
+                           Ứng tuyển
+                        </div>
+                    </div>
+                    <div class="down-right">
+                        <div class="edit-offer" data-id="@item.OfferID">EDIT</div>
+                        <div class="delete-offer" data-id="@item.OfferID">DELETE</div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div>Bạn chưa tạo một đơn tuyển dụng nào</div>
+    }
+    </div>
+    <div id="cover-screen">
+        <div id="box-create">
+            <div id="box-header">
+                TẠO ĐƠN TUYỂN DỤNG
+            </div>
+            <div id="box-main">
+                @using (Html.BeginForm("AddOfferOfEmployee", "OfferJob", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="each-part">
+                        <label for="input-name-offer">Tên công việc: <span>*</span></label>
+                        <input type="text" value="" id="input-name-offer" name="offerName" />
+                    </div>
+                    <div class="each-part">
+                        <label for="input-major-offer">Lĩnh vực: <span>*</span> </label>
+                        <input type="hidden" value="" name="offerMajor" />
+                        <input type="text" value="" id="input-major-offer" data-id="" class="search-list" list="list-major-offer" />
+                        <datalist id="list-major-offer">
+                            @foreach (var item in ViewBag.ListMajor)
+                            {
+                                <option value="@item.JobName" data-id="@item.JobID" />
+                            }
+                        </datalist>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-position-offer">Vị trí tuyển dụng: <span>*</span> </label>
+                        <select id="input-position-offer" name="offerPosition">
+                            @foreach (var item in ViewBag.ListPosition)
+                            {
+                                <option value="@item.ID">@item.NamePosition</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-salary-offer">Mức lương: <span>*</span> </label>
+                        <select id="input-salary-offer" name="offerSalary">
+                            @foreach (var item in ViewBag.ListSalary)
+                            {
+                                <option value="@item.ID">@item.Amount</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-area-offer">Khu vực: <span>*</span> </label>
+                        <select id="input-area-offer" name="offerArea">
+                            @foreach (var item in ViewBag.ListArea)
+                            {
+                                <option value="@item.AreaId">@item.NameArea</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-email-offer">Email liên hệ: <span>*</span> </label>
+                        <input type="text" value="" id="input-email-offer" name="offerEmail" />
+                    </div>
+                    <div class="each-part">
+                        <label for="input-experience-offer">Kinh nghiệm: <span>*</span> </label>
+                        <select id="input-experience-offer" name="offerExperience">
+                            @foreach (var item in ViewBag.ListExperience)
+                            {
+                                <option value="@item.ID">@item.Time</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-learning-offer">Yêu cầu học vấn: <span>*</span> </label>
+                        <select id="input-leanring-offer" name="offerLearning">
+                            @foreach (var item in ViewBag.ListLearning)
+                            {
+                                <option value="@item.ID">@item.NameLevel</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-amount-offer">Số lượng: <span>*</span> </label>
+                        <input type="tel" id="input-amount-offer" value="" name="offerAmount" />
+                    </div>
+                    <div class="each-part">
+                        <label for="input-gender">Giới tính:  </label>
+                        <select name="offerGender" id="input-gender">
+                            <option value="none">Không yêu cầu</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="each-part">
+                        <label for="input-address">Địa chỉ:  </label>
+                        <input type="text" id="input-address" name="offerAddress" />
+                    </div>
+                    <div class="each-part">
+                        <label for="input-limit-date">Hạn nộp đơn: <span>*</span> </label>
+                        <input type="text" id="input-limit-date" value="" placeholder="Định dạng dd/MM/yyyy" name="offerLimitDate" />
+                    </div>
+                    <div class="each-part-big">
+                        <div class="part-left">
+                            <label style="font-weight: bold;">Ảnh giới thiệu: </label>
+                        </div>
+                        <div class="part-right">
+                            <div id="display-image">
+                                <img src="" alt="" />
+                            </div>
+                            <input type="file" id="imgBrowser" name="offerImage" style="display: none;" />
+                            <div id="img-upload" style="border-radius: 3px;">UPLOAD</div>
+                        </div>
+                    </div>
+                    <div class="each-part-big">
+                        <div class="part-left">
+                            <label style="font-weight: bold;">Kỹ năng yêu cầu: <span>*</span> </label><br />
+                            <input type="text" value="" data-id="" class="search-list" id="input-skill-offer" list="list-skill-offer" placeholder="Nhập tìm kiếm" />
+                            <datalist id="list-skill-offer">
+                                @foreach (var item in ViewBag.ListSkill)
+                                {
+                                    <option value="@item.JobName" data-id="@item.JobID" data-parent="@item.JobIDParent" />
+                                }
+                            </datalist>
+                        </div>
+                        <div class="part-right">
+                            <div id="container-skill">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="each-part-big">
+                        <div class="part-left">
+                            <label style="font-weight: bold;">Mô tả chi tiết công việc: <span>*</span></label>
+                        </div>
+                        <div class="part-right">
+                            <textarea class="ckeditor" name="offerDescription" id="offer-description"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" value="00000000-0000-0000-0000-000000000000" name="saveID" />
+                    <input type="hidden" value="add" name="typeAction" />
+                }
+            </div>
+            <div id="box-footer">      
+                <div class="button-offer" id="cancel">CANCEL</div>
+                <div class="button-offer" id="both-input" data-id="">EDIT</div>
+            </div>
+        </div>
+    </div>
+                
+            
+
+</main>
+@section jsInsert{
+
+    <script src="~/Assets/Client/Js/Employee/OfferList.js"></script>
+}
+

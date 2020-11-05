@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "SearchCandidate";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/Employee/SearchCandidate.css" rel="stylesheet" />
+}
+
+<div id="wrap">
+    <div id="row">
+        <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng</a>
+        /<span id="tim-ho-so" class="rower">Tìm hồ sơ ứng viên</span>
+    </div>
+
+    <div id="main">
+        <div id="search">
+            <form>
+                <input type="text" id="key-word" class="former" placeholder="Tên ứng viên" onchange="checkName()" />
+            </form>
+            <form>
+                <input class="former" placeholder="Lĩnh vực" name="linhvuc" list="OfferMajor" id="linhvuc" />
+                <datalist id="OfferMajor">
+                    @foreach (var item in ViewBag.ListJobMain)
+                    {
+                        <option value="@item.JobName" data-id="@item.JobID" />
+                    }
+                </datalist>
+            </form>
+            <form>
+                <input list="ListArea" name="diadiem" class="former" placeholder="Địa điểm" id="diadiem">
+                <datalist id="ListArea">
+                    @foreach (var item in ViewBag.ListArea)
+                    {
+                        <option value="@item.NameArea" data-id="@item.AreaId" />
+                    }
+
+                </datalist>
+            </form>
+            <br/>
+            <div id="tim-ho-so" class="former">Tìm hồ sơ</div>
+        </div>
+
+        <div id="xu-ly">
+            <div id="tim-nang-cao" class="xu-ly-er">Tìm nâng cao</div>
+            <div id="xoa-loc" class="xu-ly-er" onclick="refresh()">Xóa lọc</div>
+        </div>
+
+        <div id="search-more">
+            <div id="select-wrap">
+                <select id="TTKN" name="timtheokinhnghiem" class="tt-er">
+                    <option hidden>Tìm theo kinh nghiệm</option>
+                    @foreach (var item in ViewBag.ListExperience)
+                    {
+                        <option value="@item.ID">
+                            @item.Time
+                        </option>
+                        <br />
+                    }
+                </select>
+
+
+                <select id="TTML" name="timtheomucluong" class="tt-er">
+                    <option hidden>Tìm theo mức lương</option>
+                    @foreach (var item in ViewBag.ListSalary)
+                    {
+                        <option value="@item.ID">@item.Amount </option>
+                        <br />
+                    }
+                </select>
+
+
+                <select id="TTCV" name="timthevitri" class="tt-er">
+                    <option hidden>Tìm theo vị trí công việc</option>
+                    @foreach (var item in ViewBag.ListPositionEmployee)
+                    {
+                        <option value="@item.ID"> @item.NamePosition </option>
+                        <br />
+                    }
+                </select>
+
+
+                <select id="TTLL" name="timtheocapdo" class="tt-er">
+                    <option hidden>Tìm theo trình độ học vấn</option>
+                    @foreach (var item in ViewBag.ListLevelLearning)
+                    {
+                        <option value="@item.ID"> @item.NameLevel</option>
+
+                        <br />
+                    }
+                </select>
+            </div>
+
+            <div id="videoclip-wrap">
+                <input type="checkbox" value="1" id="videoclip-check" name="videoclip" />
+                <label for="videoclip-check"><span>Có video clip giới thiệu</span></label>
+            </div>
+
+            @*<div id="thsnc-wrap">
+                <div id="tim-ho-so-nang-cao">Tìm hồ sơ nâng cao</div>
+            </div>*@
+        </div>
+
+        <div id="hstlv" class="ho-so">
+            <div id="title" class="title">
+                <h1><span></span>Hồ sơ theo lĩnh vực</h1>
+            </div>
+
+            <div id="list" class="list">
+                @foreach (var item in ViewBag.ListJobMain)
+                {
+                    <a href="/SearchCandidateResult?JobID=@item.JobID">@item.JobName</a>
+                }
+            </div>
+        </div>
+
+        <div id="hstkn" class="ho-so">
+            <div id="title" class="title">
+                <h1><span></span>Hồ sơ theo kỹ năng</h1>
+            </div>
+
+            <div id="list" class="list">
+                @foreach (var item in ViewBag.JobListSub)
+                {
+                    <a href="#">@item.JobName</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/SearchCandidate.js"></script>
+}

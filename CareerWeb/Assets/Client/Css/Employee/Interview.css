@@ -1,0 +1,722 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f3f3f3;
+    box-sizing: border-box;
+}
+
+
+#wrap {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+    #wrap #row {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+        #wrap #row .rower {
+            margin-right: 5px;
+            margin-left: 5px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #wrap #row a {
+            text-decoration: none;
+            color: #f07e1d;
+        }
+
+            #wrap #row a:hover {
+                color: #3b5998;
+            }
+
+    #wrap #main {
+        background-color: #ffffff;
+        height: auto;
+        width: 98%;
+        padding-left: 20px;
+        padding-right: 15px;
+        padding-bottom: 70px;
+        padding-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
+    }
+
+        #wrap #main h1 {
+            font-size: 23px;
+            margin-top: 20px;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        #wrap #main .steps ul {
+            padding: 0;
+            margin: 0;
+        }
+
+            #wrap #main .steps ul li {
+                display: table-cell;
+                width: 9%;
+                list-style: none;
+                padding: 0;
+                padding-right: 1px;
+                height: 59px;
+                line-height: 59px;
+                text-align: center;
+                border-radius: 10px;
+                font-weight: 700;
+            }
+
+.inactive {
+    background-color: #E9E9E9;
+    color: #333333;
+}
+
+.active {
+    background-color: #fdb251;
+    color: #fff;
+}
+
+#wrap #main #info {
+    width: 50%;
+    border: 3px solid #E9E9E9;
+    margin-top: 40px;
+    margin-left: 2%;
+    padding: 25px 15px 25px 15px;
+    display: inline-block;
+}
+
+#info #top-info {
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 20px;
+}
+
+#info h2 {
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 0;
+    display: inline-block;
+    font-size: 20px;
+}
+
+#info #top-info h2 {
+    font-size: 24px;
+}
+
+#info #top-info a {
+    text-decoration: none;
+    display: inline-block;
+    float: right;
+    background-color: #75d69c;
+    color: #fff !important;
+    transition: all .5s;
+    -webkit-box-shadow: 0 5px 0 #4ac97d;
+    box-shadow: 0 5px 0 #4ac97d;
+    line-height: 30px;
+    width: 75px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+}
+
+    #info #top-info a:hover {
+        background-color: #fdb251;
+        -webkit-box-shadow: 0 5px 0 #f07e1d;
+        box-shadow: 0 5px 0 #f07e1d;
+    }
+
+#info #second-info {
+}
+
+    #info #second-info #candidate-img {
+        display: inline-block;
+        width: 30%;
+        background-color: palegoldenrod;
+    }
+
+    #info #second-info #candidate-detail {
+        display: inline-block;
+    }
+
+        #info #second-info #candidate-detail ul li {
+            list-style: none;
+            margin-bottom: 3px;
+        }
+
+#candidate-detail ul li i {
+    width: 30px;
+}
+
+#info #third-info {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+    #info #third-info ul li {
+        list-style: none;
+        margin-bottom: 5px;
+    }
+
+#info #fourth-info {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+    #info #fourth-info ul li {
+        list-style: none;
+        margin-bottom: 5px;
+    }
+
+#info #fifth-info {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+    #info #fifth-info div {
+    }
+
+    #info #fifth-info p {
+        font-size: 18px;
+        margin: 10px 0px 0px 15px;
+    }
+
+    #info #fifth-info ul li {
+        list-style: none;
+        margin-bottom: 5px;
+    }
+
+#info #sixth-info {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+    #info #sixth-info span {
+        display: block;
+        margin: 10px 0px 5px 40px;
+    }
+
+#info #seventh-info {
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+    #info #seventh-info span {
+        display: block;
+        margin: 10px 0px 5px 40px;
+    }
+
+#wrap #main #right-panel {
+    display: inline-block;
+    float: right;
+    margin-top: 95px;
+    margin-right: 9%;
+    width: 303px;
+}
+
+.fixed-contact {
+    position: fixed;
+    top: 70px;
+    left: 62%;
+    width: 303px;
+}
+
+#contact h3 {
+    text-transform: uppercase;
+    border-bottom: 1px solid #E9E9E9;
+    padding-bottom: 20px;
+}
+
+#contact span {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#contact #interview1, #contact #fail {
+    text-decoration: none;
+    background-color: #75d69c;
+    color: #fff !important;
+    transition: all .5s;
+    -webkit-box-shadow: 0 5px 0 #4ac97d;
+    box-shadow: 0 5px 0 #4ac97d;
+    line-height: 30px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+}
+
+
+    #contact #interview1:hover, #contact #fail:hover {
+        background-color: #fdb251;
+        -webkit-box-shadow: 0 5px 0 #f07e1d;
+        box-shadow: 0 5px 0 #f07e1d;
+    }
+
+#contact #message {
+    margin-top: 20px;
+    display: none;
+}
+
+#contact #failmessage, #failmessage2{
+    font-size: 18px;
+    color: red;
+    margin-top:20px;
+    margin-bottom: 10px;
+    text-transform : uppercase;
+    font-style:italic;
+    font-weight: 700;
+}
+
+    #contact #message textarea {
+        transition: all .5s;
+        -webkit-box-shadow: 0px 2px 2px 5px #4ac97d;
+        box-shadow: 0px 2px 2px 5px #4ac97d;
+        border-top: 1px solid transparent;
+        border-radius: 4px;
+        margin-top: 10px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    #contact #message #send, #contact #message #cancel {
+        background-color: #75d69c;
+        color: #fff !important;
+        transition: all .5s;
+        -webkit-box-shadow: 0 5px 0 #4ac97d;
+        box-shadow: 0 5px 0 #4ac97d;
+        line-height: 30px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        width: 40%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+
+    #contact #message #send {
+        margin-right: 4%;
+        margin-left: 4%;
+    }
+
+    #contact #message #cancel {
+        margin-left: 4%;
+        margin-right: 4%;
+    }
+
+        #contact #message #send:hover, #contact #message #cancel:hover {
+            background-color: #fdb251;
+            -webkit-box-shadow: 0 5px 0 #f07e1d;
+            box-shadow: 0 5px 0 #f07e1d;
+        }
+
+@media screen and (max-width:1350px) {
+    #wrap {
+        width: 85%;
+    }
+
+        #wrap #main #right-panel {
+            margin-right: 5%;
+        }
+}
+
+@media screen and (max-width:1200px) {
+    #wrap {
+        width: 90%;
+    }
+
+        #wrap #main #right-panel {
+            margin-right: 5%;
+        }
+
+    .fixed-contact {
+        left: 62%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    #wrap {
+        width: 95%
+    }
+
+        #wrap #main #right-panel {
+            margin-right: 5%;
+        }
+}
+
+@media screen and (max-width: 900px) {
+    #wrap #main #info {
+        display: block;
+        width: 90%;
+    }
+
+    #wrap #main #right-panel {
+        display: block;
+        width: 100%;
+        float: none;
+        margin-top: 15px;
+        padding-right: 30px;
+    }
+
+    .fixed-contact {
+        position: static;
+        width: 100%;
+    }
+}
+
+#overview {
+}
+
+#interview {
+    text-align: center;
+}
+
+    #interview h4 {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: #f2a348;
+    }
+
+    #interview form {
+        text-align: left;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 2px solid #f3f3f3;
+        padding-top: 20px;
+    }
+
+        #interview form label {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        #interview form input {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 30px;
+            border: 2px solid #e9e9e9;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        #interview form textarea {
+            margin-top: 5px;
+            border: 2px solid #e9e9e9;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+    #interview .checknull {
+        color: red;
+        float: right;
+    }
+
+    #interview #submit {
+        background-color: #75d69c;
+        color: #fff !important;
+        transition: all .5s;
+        -webkit-box-shadow: 0 5px 0 #4ac97d;
+        box-shadow: 0 5px 0 #4ac97d;
+        line-height: 30px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        width: 20%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        #interview #submit:hover {
+            background-color: #fdb251;
+            -webkit-box-shadow: 0 5px 0 #f07e1d;
+            box-shadow: 0 5px 0 #f07e1d;
+        }
+
+#thu-moi {
+    display: none;
+}
+
+#wait-for-response {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    display: none;
+}
+
+    #wait-for-response #status, #wait-for-response #result, #denyresult {
+        display: block;
+        font-size: 22px;
+        color: #4855f2;
+    }
+
+    #wait-for-response h4 {
+        font-size: 17px;
+        border-bottom: 2px solid #1b799c;
+        padding-bottom: 8px;
+    }
+
+    #wait-for-response ul {
+        border-left: 2px solid #F9CF5D;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+        #wait-for-response ul li {
+            list-style: none;
+            padding: 15px 0px 15px 10px;
+            border-top: 1px #e5e5e5 solid;
+        }
+
+            #wait-for-response ul li:first-child {
+                border-top: 0;
+            }
+
+            #wait-for-response ul li b {
+                color: #f2a348;
+            }
+
+    #wait-for-response .button {
+        background-color: #75d69c;
+        color: #fff !important;
+        transition: all .5s;
+        -webkit-box-shadow: 0 5px 0 #4ac97d;
+        box-shadow: 0 5px 0 #4ac97d;
+        line-height: 30px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-align: center;
+        margin-top: 15px;
+        width: 20%;
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: none;
+    }
+
+#wait-for-response .button:hover {
+       background-color: #fdb251;
+       -webkit-box-shadow: 0 5px 0 #f07e1d;
+       box-shadow: 0 5px 0 #f07e1d;
+}
+
+#wait-for-response #message2 {
+        margin-top: 20px;
+        margin-left: 40%;
+        display: none;
+}
+
+#wait-for-response #message2 textarea {
+    transition: all .5s;
+    -webkit-box-shadow: 0px 2px 2px 5px #4ac97d;
+    box-shadow: 0px 2px 2px 5px #4ac97d;
+    border-top: 1px solid transparent;
+    border-radius: 4px;
+    margin-top: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+#wait-for-response #message2 #send2, #wait-for-response #message2 #cancel2 {
+    background-color: #75d69c;
+    color: #fff !important;
+    transition: all .5s;
+    -webkit-box-shadow: 0 5px 0 #4ac97d;
+    box-shadow: 0 5px 0 #4ac97d;
+    line-height: 30px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    width: 40%;
+    display: inline-block;
+    cursor: pointer;
+    width: 100px;
+}
+
+
+#wait-for-response #message2 #send2 {
+    margin-right: 4%;
+    margin-left: 10%;
+}
+
+#wait-for-response #message2 #cancel2 {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+#wait-for-response #message2 #send2:hover, #cwait-for-response #message2 #cancel2:hover {
+    background-color: #fdb251;
+    -webkit-box-shadow: 0 5px 0 #f07e1d;
+    box-shadow: 0 5px 0 #f07e1d;
+}
+
+#interview {
+    display: none;
+}
+
+#elect {
+    text-align: center;
+}
+
+    #elect h4 {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: #f2a348;
+    }
+
+    #elect form {
+        text-align: left;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        border-top: 2px solid #f3f3f3;
+        padding-top: 20px;
+    }
+
+        #elect form label {
+            font-weight: 600;
+        }
+
+        #elect form input {
+            margin-top: 5px;
+            margin-bottom: 20px;
+            width: 100%;
+            height: 30px;
+            border: 2px solid #e9e9e9;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        #elect form textarea {
+            margin-top: 5px;
+            border: 2px solid #e9e9e9;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+#elect .checknull2 {
+    color: red;
+    float: right;
+}
+
+    #elect #submit2 {
+        background-color: #75d69c;
+        color: #fff !important;
+        transition: all .5s;
+        -webkit-box-shadow: 0 5px 0 #4ac97d;
+        box-shadow: 0 5px 0 #4ac97d;
+        line-height: 30px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-align: center;
+        display: block;
+        margin-top: 15px;
+        width: 20%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+        #elect #submit2:hover {
+            background-color: #fdb251;
+            -webkit-box-shadow: 0 5px 0 #f07e1d;
+            box-shadow: 0 5px 0 #f07e1d;
+        }
+
+#moi-lam {
+    display: none;
+}
+
+#wait-for-response2 {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 20px;
+    display:none;
+}
+
+    #wait-for-response2 #status2, #wait-for-response2 denyresult2 {
+        display: block;
+        font-size: 22px;
+        color: #4855f2;
+    }
+
+    #wait-for-response2 h4 {
+        font-size: 17px;
+        border-bottom: 2px solid #1b799c;
+        padding-bottom: 8px;
+    }
+
+    #wait-for-response2 ul {
+        border-left: 2px solid #F9CF5D;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+        #wait-for-response2 ul li {
+            list-style: none;
+            padding: 15px 0px 15px 10px;
+            border-top: 1px #e5e5e5 solid;
+        }
+
+            #wait-for-response2 ul li:first-child {
+                border-top: 0;
+            }
+
+            #wait-for-response2 ul li b {
+                color: #f2a348;
+            }
+
+#elect {
+    display: none;
+}
+
+#finalresult {
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+    #finalresult #result2 {
+        display: block;
+        font-size: 22px;
+        color: #4855f2;
+    }
+
+    #finalresult ul {
+        border-left: 2px solid #F9CF5D;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+        #finalresult ul li {
+            list-style: none;
+            padding: 15px 0px 15px 10px;
+            border-top: 1px #e5e5e5 solid;
+        }
+
+            #finalresult ul li:first-child {
+                border-top: 0;
+            }
+
+            #finalresult ul li b {
+                color: #f2a348;
+            }
+
+#finalresult {
+    display: none;
+}

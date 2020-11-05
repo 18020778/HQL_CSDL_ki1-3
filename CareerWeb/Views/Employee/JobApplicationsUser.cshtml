@@ -1,0 +1,183 @@
+﻿
+
+
+@{
+    ViewBag.Title = "JobApplicationsUser";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/Employee/JobApplicationsUser.css" rel="stylesheet" />
+}
+
+
+<div id="wrap">
+    <div id="row">
+        <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng : Quản lý</a>
+        /<span id="danh-sach" class="rower">Danh sách ứng viên</span>
+    </div>
+
+    <div id="main">
+        <div id="title">
+            <h1>Quản lý danh sách ứng viên</h1>
+        </div>
+
+        <div id="tab">
+            <ul>
+                <li id="appli-list" class="list list-active" onclick="active_tab_appli()">
+                    <span>Ứng viên đã nộp hồ sơ</span>
+                </li>
+                <li id="save-list" class="list" onclick="active_tab_save()">
+                    <span>Ứng viên đã lưu</span>
+                </li>
+            </ul>
+        </div>
+
+        <div id="tab-content">
+            <div id="utility" class="utility">
+                <div id="display-utility" class="display-utility">
+                    <label>
+                        Hiển thị
+                        <select id="display" name="hien-thi">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div id="search-utility" class="search-utility">
+                    <label>
+                        Tìm kiếm
+                        <input type="text" name="tim-kiem" id="search" />
+                    </label>
+                </div>
+            </div>
+
+            <div id="tab-appli" class="tab tab-active">
+                <div>
+
+                </div>
+
+                <div id="list-candidate">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ứng viên</th>
+                                <th>Lương</th>
+                                <th>Ngày nộp</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.AppliedCandidate)
+                            {
+                                <tr class="candidate-rows">
+                                    <td class="candidate">
+                                        <a href="#">
+                                            <img src="#">
+                                        </a>
+                                        <div class="candidate-details">
+                                            <span class="candidate-name">
+                                                <a href="#">@item.CandidateName</a>
+                                            </span><br>
+                                            <span class="job-name">
+                                                <a href="#">@item.OfferName</a>
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                    <td class="salary">
+                                        @item.Salary
+                                    </td>
+
+                                    <td class="submit-date">
+                                        @item.CreateDate
+                                    </td>
+
+                                    <td class="status">
+                                        @item.Status
+                                    </td>
+                                 
+                                    <td class="action">
+                                        <div class="action-button" id="detail"  user="@item.CandidateID" offer="@item.OfferID" onclick="actionDetail()">
+                                            Chi tiết
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="tab-save" class="tab">
+                <div>
+
+                </div>
+
+                <div id="list-candidate">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ứng viên</th>
+                                <th>Lương</th>
+                                <th>Ngày lưu</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.SavedCandidate) { 
+                                <tr class="candidate-rows">
+                                    <td class="candidate">
+                                        <a href="#">
+                                            <img src="#">
+                                        </a>
+                                        <div class="candidate-details">
+                                            <span class="candidate-name">
+                                                <a href="#">@item.CandidateName</a>
+                                            </span><br>
+                                            <span class="job-name">
+                                                <a href="#">@item.DesiredJob                          </a>
+                                            </span>
+                                        </div>
+                                    </td>
+
+                                    <td class="salary">
+                                        @item.Salary
+                                    </td>
+
+                                    <td class="submit-date">
+                                        @item.CreateDate
+                                    </td>
+
+                                    <td class="action">
+                                        <div class="detail-button">
+                                            Chi tiết
+                                        </div>
+
+                                        <div class="delete-button" stt="@item.CandidateID" onclick="deleteSavedCandidate()">
+                                            Xóa
+                                        </div>
+                                    </td>
+                                </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="page">
+                <div class="prev"><i class="fa fa-chevron-left"></i></div>
+                <div class="next"><i class="fa fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section jsInsert{
+
+    <script src="~/Assets/Client/Js/Employee/JobApplicationsUser.js"></script>
+}

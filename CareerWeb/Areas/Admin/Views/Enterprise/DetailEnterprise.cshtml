@@ -1,0 +1,67 @@
+﻿@model Model.EF.Enterprise
+@{
+    ViewBag.Title = "DetailEnterprise";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header {
+    Detail
+}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Enterprise Management", "Index")</li>
+    <li class="breadcrumb-item active">Detail</li>
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Enterprise Information</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>EnterpriseID</td>
+                    <td>@Model.EnterpriseID</td>
+                </tr>
+                <tr>
+                    <td>EnterpriseName</td>
+                    <td>@Model.EnterpriseName</td>
+                </tr>
+                <tr>
+                    <td>EstablishYear</td>
+                    <td>@Model.EstablishYear</td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>@Model.Description</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td>EnterpriseSize</td>
+                    <td>@Model.EnterpriseSize</td>
+                </tr>
+                <tr>
+                    <td>TypeOfEnterprise</td>
+                    <td>@Model.TypeOfEnterprise</td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>@Model.Mobile</td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>@Model.Status</td>
+                </tr>
+                <tr>
+                    <td>Code</td>
+                    <td>@Model.Code</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>@Html.ActionLink("Return", "Index", null, new { @class = "btn btn-outline-primary" })</div>
+    </div>
+    <div class="col-lg-6">
+        <img src="@Model.ImageLogo" width="50%" height="auto" />
+    </div>
+</div>

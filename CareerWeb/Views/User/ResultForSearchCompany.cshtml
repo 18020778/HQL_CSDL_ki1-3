@@ -1,0 +1,133 @@
+﻿@model List<Model.Models.ShowFullEnterprise>
+@using Model.Dao
+@{
+    ViewBag.Title = "ResultForSearchCompany";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var SalaryDao = new SalaryDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/ResultForSearchCompany.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
+}
+
+
+<div class="page-wrapper">
+    <div class="career-subheader">
+        <span class="banner"></span>
+    </div>
+    <div class="main-content" style="margin-top: 185px">
+        <div class="main-section">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="company-info">
+                                <span class="img-thumbnail">
+                                    <img src="@item.ImageLogo">
+                                </span>
+                                <div style="margin-left: 230px; padding-top: 5px;">
+
+                                    <h2 id="company-name">@item.EnterpriseName</h2>
+                                    <ul class="company-info-option">
+                                        <li>
+                                            <i class="fa fa-map-marker"></i>
+                                            <span>@item.NameArea</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="company-detail-wrap">
+                                <div class="company-detail-content">
+                                    <h2>Tổng quan về @item.EnterpriseName</h2>
+                                    <div class="company-overview">
+                                        <ul class="row">
+                                            <li class="overview-item">
+                                                <i class="fa fa-users"></i>
+                                                <div class="item-text">Quy mô:<small>> @item.AmountSize</small></div>
+                                            </li>
+                                            <li class="overview-item">
+                                                <i class="fa fa-calendar-alt"></i>
+                                                <div class="item-text">Thời gian thành lập<small>@item.EstablishYear</small></div>
+                                            </li>
+                                            <li class="overview-item">
+                                                <i class="fa fa-briefcase"></i>
+                                                <div class="item-text">Công việc đã đăng<small>@ViewBag.ShowContainer.Count</small></div>
+                                            </li>
+                                            <li class="overview-item">
+                                                <i class="fa fa-object-ungroup"></i>
+                                                <div class="item-text">Lĩnh vực kinh doanh<small>@ViewBag.ListFullJobName</small></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <h3>Mô tả công ty</h3>
+                                    <p>@Html.Raw(item.Description)</p>
+                                    <div class="joblist-title">
+                                        <h2>Việc làm của @item.EnterpriseName</h2>
+                                    </div>
+                                    <div class="company-joblist">
+
+                                        <ul class="row">
+                                            @if (ViewBag.ShowContainer.Count == 0)
+                                            {
+                                                <p>Công ty chưa đăng tin tuyển dụng</p>
+                                            }
+                                            else
+                                            {
+                                                foreach (var it in ViewBag.ShowContainer)
+                                                {
+                                                    <li class="job">
+                                                        <div class="job-wrap">
+                                                            <span class="company-img">
+                                                                <img src="@it.OfferImage" />
+                                                            </span>
+                                                            <div class="job-info">
+                                                                <h3 style="margin: 10px">
+                                                                    <a href="">@it.OfferName</a>
+                                                                </h3>
+                                                                <ul id="job-info-option">
+                                                                    <li>
+                                                                        <i class="fa fa-map-marker"></i>
+                                                                        <span>@it.JobAddress</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa fa-dollar-sign"></i>
+                                                                        <span>Lương: @(SalaryDao.AmountSalary(it.OfferSalary)) USD</span>
+
+                                                                    </li>
+                                                                    <li>
+                                                                        <i class="fa fa-gift"></i>
+                                                                        <span>Thưởng: @it.Bonus</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            }
+        </div>
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/ResultForSearchCompany.js"></script>
+}
+

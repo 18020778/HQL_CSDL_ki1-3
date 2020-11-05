@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "EnterpriseHome";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/Enterprise/EnterpriseHome.css" rel="stylesheet" />
+}
+
+
+<body style="background-color: #F3F3F3">
+    <div class="baner">
+        <div class="title">
+            Go further. Dream Bigger. Work better
+        </div>
+
+        <div>
+            <input type="text" id="key-word" class="jobBrowser" style="margin-left: 7%" placeholder="Tên ứng viên" onchange="checkName()" />
+        </div>
+
+        <form>
+            <input class="jobBrowser" minlength="2" placeholder="All career" name="linh-vuc" list="linh-vuc" id="as" />
+            <datalist id="linh-vuc" style="height:5.1em">
+                @foreach (var item in ViewBag.JobList)
+                {
+                    <option value="@item.JobName" data-id="@item.JobID" />
+                }
+            </datalist>
+        </form>
+
+        <form>
+            <input list="dia-diem" class="jobBrowser" placeholder="All state" id="bs">
+            <datalist id="dia-diem">
+                @foreach (var item in ViewBag.AreaList)
+                {
+                    <option value="@item.NameArea" data-id="@item.AreaId" />
+                }
+
+            </datalist>
+
+        </form>
+
+        <div>
+            <input class="submit-box " type="submit" id="submit" value="TÌM HỒ SƠ" onclick="search()" />
+        </div>
+
+        <div class="container">
+            <div class="serif">
+                CareerWeb là dịch vụ tuyển dụng
+                <a class="link" href="SearchJobForUser?"> tìm việc làm</a>,
+                <a class="link" href=""> đăng tin tuyển dụng</a>
+                và <a class="link" href="~/Employee/SearchCandidate?"> tìm hồ sơ xin việc</a> theo khu vực, lĩnh vực, kỹ năng và nhiều điều kiện khác
+            </div>
+        </div>
+
+    </div>
+    <div class="service-box">
+        <div class="name-service-box">
+            DỊCH VỤ TUYỂN DỤNG
+        </div>
+        <div class="info-service-box info-service-box1">
+
+            <img style="margin-left:25%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/Capture.PNG" />
+            <div style="height: 30%">
+                <b style="text-align:center; color: #3A5998; font-size:18px; margin-left:22%">ĐĂNG TIN TUYỂN DỤNG</b><br /><br /><br />
+            </div>
+            <div style="height:3em; width: 100%; margin-left: 10%; font-size:16px; color:#E95F07">
+                <a href="/Employee/ListAndCreateOffer" style="font-weight: bold; text-decoration: none; margin-left:25%">&emsp;Xem thêm</a>
+            </div>
+        </div>
+        <div class="info-service-box info-service-box2">
+
+            <img style="margin-left:25%" src="~/Assets/Client/Img/Enterprise/EnterpriseHome/Capture2.PNG" />
+            <div style="height: 30%">
+                <b style="text-align:center; color: #3A5998; font-size:18px; margin-left:25%">TÌM HỒ SƠ XIN VIỆC</b><br /><br /><br />
+            </div>
+            <div style="height:3em; width: 100%; margin-left: 25%; font-size:16px;color:#E95F07">
+
+                <a href="/Employee/SearchCandidate?" style="font-weight: bold; text-decoration: none; margin-left:10%">&emsp;Xem thêm</a>
+            </div>
+        </div>
+    </div>
+   
+</body>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/EnterpriseHome/EnterpriseHome.js"></script>
+}
+
+
+
+
+
+
+

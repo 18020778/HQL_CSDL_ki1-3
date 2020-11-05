@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "ResponseEnterprise";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header{Enterprise}
+@model List<Model.EF.Enterprise>
+@section cssInsert{
+    <link href="~/Assets/Admin/Css/Enterprise/ResponseEnterprise.css" rel="stylesheet" />
+    }
+@foreach (var item in Model)
+{
+    <div class="container-enterprise" ent-id="@item.EnterpriseID">
+        <img src="@item.ImageLogo" class="enterprise-logo" width="150" height="150"/>
+        <div class="infor-basic">
+            <div class="enterprise-name">@item.EnterpriseName</div>
+        </div>
+    </div>
+}
+<div id="container-full-infor" ent-id="" index-class ="">
+    <img src="" id="ent-logo" width="150" height="150"  alt=""/>
+    <div id="ent-name">Tên doanh nghiệp: <span></span> </div>
+    <div id="ent-email">Email: <span></span> </div>
+    <div id="ent-mobile">Số điện thoại: <span></span> </div>
+    <div id="ent-establish-year">Năm thành lập: <span></span></div>
+    <div id="ent-area">Chi nhánh: <span></span> </div>
+    <div id="ent-create-date">Thời gian tạo : <span></span></div>
+    <div id="container-job-main" class="container-job">
+
+    </div>
+    <div id="container-job-sub" class="container-job">
+
+    </div>
+    <input type="button" value="SUBMIT" id="submit"/>
+    <input type="button" value="REMOVE" id="remove"/>
+    <input type="button" value="CANCEL" id="turn-off"/>
+    <div id="cover-check-new-job">
+        <div id="check-new-job" ind-class ="">
+            <div id="job-name" job-id=""></div>
+            <input value="SUBMIT" id="accept" type="button" />
+            <input value="REMOVE" id="cancel" type="button" />
+            <span>Xác nhận hoặc xóa ngành nghề mới</span>
+        </div>
+    </div>
+  
+</div>
+@section scriptInsert{
+    <script src="~/Assets/Admin/Js/Enterprise/ResponseEnterprise.js"></script>
+    }
+
+

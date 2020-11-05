@@ -1,0 +1,89 @@
+﻿.container-enterprise{
+    width: 40%;
+    margin-top: 15px;
+    margin-left: 10%;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    float: left;
+}
+.enterprise-logo{
+    float: left;
+}
+.infor-basic{
+    float: left;
+    margin-left: 10px;
+}
+#container-full-infor{
+    position: fixed;
+    width: 500px;
+    height: 550px;
+    background-color: white;
+    border: 1px solid black;
+    display: none;
+    margin-left: calc(50% - 200px);
+    margin-top: 50px;
+    float: left;
+}
+#container-full-infor img{
+    border: 1px solid black;
+}
+.container-job{
+    width: 70%;
+    margin-left: 15%;
+    max-height: 100px;
+    height: auto;
+    border: 1px solid black;
+    float: left;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+.option-complete {
+    width: auto;
+    padding: 3px 5px 3px 5px;
+    height: auto;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    float: left;
+    font-size: 10pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+}
+.option-new {
+    padding: 3px 5px 3px 5px;
+    width: auto;
+    height: auto;
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+    font-size: 10pt;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    border-radius: 5px;
+}
+.option-new:hover{
+    background-color: aqua;
+}
+#cover-check-new-job{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+    top: 0px;
+    left: 0px;
+}
+#check-new-job{
+    width: 60%;
+    height: 100px;
+    border: 1px solid black;
+    margin-top: 100px;
+    margin-left: 20%;
+    background-color: white;
+}

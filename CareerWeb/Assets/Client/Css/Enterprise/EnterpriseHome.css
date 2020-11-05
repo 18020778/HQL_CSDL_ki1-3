@@ -1,0 +1,162 @@
+﻿body {
+    background-color: #F3F3F3;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+.baner {
+    margin-top: 75px;
+    background-image: url('../../Img/Common/Business-Wallpaper-HD-Wallpapers-Backgrounds-of-Your-Choice-3.jpg');
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-width: 0.0625em;
+    border-style: solid;
+    background-size: cover;
+    height: 35em;
+    width: 100%;
+    font-weight: bold;
+    font-family: Tahoma;
+    padding: 0.75em 0 9.375em 0;
+    text-align: center;
+    color: white;
+    border-color: white;
+    font-size: 1em;
+}
+
+.title {
+    margin-top: 1%;
+    font-size: 2.5em;
+    height: 1.5em;
+    color: midnightblue;
+    text-align: center;
+}
+
+.content {
+    width: 60%;
+    height: 20%;
+    font-size: 22px;
+    margin-left: 20%;
+    text-align: center;
+    color: white;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: 1.9px;
+    margin-top: 0.75em;
+}
+
+.jobBrowser {
+    float: left;
+    width: 20%;
+    height: 3em;
+    margin-left: 3%;
+    margin-top: 45px;
+    box-shadow: 0 0 5px gray;
+    font-size: 15px;
+}
+
+
+.search-box {
+    width: 15em;
+    height: 3em;
+
+    margin-left: 12%;
+    margin-top: 25px;
+    float: left;
+    background-color: white;
+    color: black;
+  
+    font-size: 17px;
+    border: 1px solid #49AFF2;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+}
+.select-box:focus {
+    color: black;
+    outline: none;
+    width: 100%;
+    z-index: 3;
+}
+.submit-box {
+    width: 10em;
+    height: 2.8em;
+    margin-top: 45px;
+    margin-left: 30px;
+    float: left;
+    background-color: rgba(40, 152, 26, 0.93);
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border: 0px solid #F3F3F3;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+}
+
+.submit-box:hover {
+    cursor: pointer;
+    background-color: orangered;
+}
+
+
+.container {
+    float: left;
+    width: 80%;
+    height: auto;
+    margin-top: 5%;
+    text-align: center;
+    margin-left: 9%;
+    font-size: 17px;
+    padding: 10px;
+}
+
+.link {
+    font-style: italic;
+    color: #FFC799;
+    text-decoration: none;
+}
+
+.function-box {
+    width: 88%;
+    height: 4.4em;
+    float: left;
+    text-align: right;
+    right: 15%;
+    color: white;
+    padding-top: 20px;
+}
+
+.service-box {
+    width: 100%;
+    height: 36em;
+    margin-top: 5%;
+}
+
+.name-service-box {
+    width: 100%;
+    height: 14%;
+    color: #333333;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 2em;
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.info-service-box {
+    margin-top: 3%;
+    float: left;
+    width: 25%;
+    height: 50%;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #AAA;
+}
+
+.info-service-box1 {
+    margin-left: 20%;
+}
+
+.info-service-box2 {
+    margin-left: 10%;
+}
+
+

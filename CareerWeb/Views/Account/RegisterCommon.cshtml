@@ -1,0 +1,66 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterCommon</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-image: url('../../Assets/Client/Img/Common/backgroundRegister.jpg');
+            background-size: cover;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+        }
+        #choose-box {
+            width: 500px;
+            height: 405px;
+            background-color: white;
+            border: 3px solid black;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        #choose-box div{
+            text-align: center;
+            width: 100%;
+            height: 70px;
+            font-size: 20pt;
+            line-height: 2.5;
+            border-bottom: 2px solid black;
+        }
+        #choose-box a{
+            color: white;
+            text-decoration: none;
+        }
+        #choose-box a div{
+            background-color: #40a7d6;
+            text-decoration: none;
+            width: 50%;
+            height: 60px;
+            margin: auto;
+            line-height: 2.3;
+            margin-top: 40px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            border: none;
+        }
+        #choose-box a div:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="choose-box">
+        <div>Chọn danh mục mà bạn muốn đăng ký</div>
+        <a href="/Account/RegisterForUser"><div>Người tìm việc</div></a>
+        <a href="/Account/RegisterForEnterprise"><div>Doanh nghiệp</div></a>
+        <a href="/Account/RegisterForEmployee"><div>Nhân viên công ty</div></a>
+    </div>
+</body>
+</html>

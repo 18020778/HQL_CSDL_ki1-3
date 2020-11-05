@@ -1,0 +1,163 @@
+﻿@*@model List<Model.Models.FormEnterpriseFull>*@
+@model PagedList.IPagedList<Model.Models.FormEnterpriseFull>
+@using Model.Dao
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "SearchCompanyForUser";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var EnterpriseDao = new EnterpriseDao();
+    var EnterpriseJobDao = new EnterpriseJobDao();
+    var EnterpriseAreaDao = new EnterpriseAreaDao();
+    var JobMajorDao = new JobMajorDao();
+    var AreaDao = new AreaDao();
+    var count = 0;
+
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/SearchCompanyForUser.css" rel="stylesheet" />
+}
+
+<div class="page-wrapper">
+    <div class="subheader">
+
+
+        <div class="page-title">
+            <h1>Nhà tuyển dụng hàng đầu</h1>
+            <p>Hãy tỏa sáng tài năng của bạn tại những doanh nghiệp hàng đầu</p>
+        </div>
+
+    </div>
+    <div class="career-breadcrumb">
+        <div>
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <i class="fas fa-angle-right"></i>
+                    <span style="padding-left: 15px;">Companies</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="career-main-content">
+        <div class="career-main-section">
+            <div class="page-container">
+                <div class="row">
+                    <div class="sub-header-form">
+                        <form>
+                            <input type="text" list="selectedEnterprise" name="enterprise" class="jobBrowser" style="height: 3em;"
+                                   placeholder="EnterpriseName" />
+                        </form>
+                        <form>
+                            <input type="text" list="selectedCareer" name="careerBrowser" id="careerBrowser" class="jobBrowser" style="height: 3em;"
+                                   placeholder="All career">
+                            <datalist id="selectedCareer">
+                                @foreach (var item in ViewBag.ListJobMain)
+                                {
+                                    <option value="@item.JobName" data-id="@item.JobID" />
+                                }
+                            </datalist>
+                        </form>
+                        <form>
+                            <input type="text" list="selectedState" name="areaBrowser" id="areaState" class="jobBrowser" style="height: 3em;"
+                                   placeholder="All state">
+                            <datalist id="selectedState">
+                                @foreach (var item in ViewBag.ListArea)
+                                {
+                                    <option value="@item.NameArea" data-id="@item.AreaId" />
+                                }
+                            </datalist>
+                        </form>
+                        <button style="margin-left: 25px;" id="findIcon">
+                            <i class="fa fa-search"></i><span style="display: none;">Tim kiem</span>
+                        </button>
+                    </div>
+                    <aside class="job-left-menu">
+                        <div class="career-typo-wrap">
+                            <form class="career-search-filter">
+                                <div class="career-filter-responsive-wrap">
+                                    <div class="career-search-filter-wrap career-search-filter-toggle">
+                                        <h2 class="colClick">
+                                            <span>Quy mô</span>
+                                            <i class="fa fa-angle-down" style="float: right;"></i>
+                                        </h2>
+                                        <form style="font-size: 1.2em; margin-left: 0.3em;">
+                                            @foreach (var item in ViewBag.ListEnterpriseSize)
+                                            {
+                                                <input type="radio" name="selectSize" value="@item.SizeID" style="margin-right: 10px;" /> @item.AmountSize<br />
+                                            }
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </aside>
+                    <div class="job-right-menu">
+                        <div class="career-typo-wrap">
+                            <div class="filterable" style="float:right;" id="clearAll">Clear All</div><br>
+                            @if (Model != null && Model.Count != 0)
+                            {
+                                <div class="filterable">Tìm thấy @Model.TotalItemCount kết quả</div>
+                            }
+                            else
+                            {
+                                <div class="filterable"> Không tìm thấy công việc như yêu cầu</div>
+                            }
+                            @if (Model != null && Model.Count != 0)
+                            {
+                                foreach (var item in Model)
+                                {
+
+                                    <div class="career-employer-list">
+
+                                        <ul class="row">
+
+                                            <li class="employer">
+                                                <a href="/ResultForSearchCompany/@item.EnterpriseID" style="color: black; text-decoration: none;">
+                                                    <div class="career-table-row" style="height: auto">
+                                                        <div class="career-table-cell" style="width: 25%;">
+                                                            <img src="@item.ImageLogo" class="employer-image" style="height: 160px!important;">
+                                                        </div>
+                                                        <div class="company-info career-table-cell" style="width: 65%; float:left; margin-top: 10px; margin-left: 20px">
+
+                                                            <h2 style="margin-bottom: 10px; padding: 0;">
+                                                                <div class="link-to-company" style="font-size: 24px; color: orangered; max-width: 100% ">@item.EnterpriseName</div>
+                                                            </h2>
+                                                            <small>
+                                                                <div class="link-to-company">
+                                                                    @ViewBag.ListFullJobName[count]
+                                                                </div>
+                                                            </small>
+                                                            <br />
+                                                            <span style="max-width: 100%">
+                                                                <i class="fa fa-map-marker" style="color: #f07e1d"></i>
+                                                                @item.NameArea
+                                                            </span>
+                                                        </div>
+
+                                                    </div>
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    count += 1;
+
+                                }
+
+                            }
+                            @Html.PagedListPager(Model, page => Url.Action("SearchCompanyForUser", new { page }))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @section jsInsert{
+        <script src="~/Assets/Client/Js/User/SearchCompanyForUser.js"></script>
+    }
+

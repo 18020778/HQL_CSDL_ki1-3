@@ -1,0 +1,74 @@
+﻿@model Model.EF.Interview
+
+
+@{
+    ViewBag.Title = "InterviewLetter";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Manage/InterviewLetter.css" rel="stylesheet" />
+}
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>TIẾN TRÌNH NỘP HỒ SƠ</b></div>
+        <div id="stages">
+            <div class="stage" style="left: 0px;"><br><b>1 - Nộp Đơn</b></div>
+            <div class="triangleStageWhite" style="left: 256px; "></div>
+            <div class="triangleStageGray" style="left: 254px; "></div>
+            <div class="stage" style="left: 257px; background-color: #f07e1d; color: white; cursor: pointer;">
+                <br><b>
+                    2 - Phỏng
+                    Vấn
+                </b>
+            </div>
+            <div class="triangleStageWhite" style="left: 505px;"></div>
+            <div class="triangleStageGray" style="left: 503px; border-left-color: #f07e1d; "></div>
+            <div class="stage" style="left: 505px;"><br><b>3 - Mời Làm</b></div>
+            <div class="triangleStageWhite" style="left: 762px;"></div>
+            <div class="triangleStageGray" style="left: 760px; "></div>
+            <div class="stage" style="left: 760px;"><br><b>4 - Kết Quả</b></div>
+            <div class="triangleStageWhite" style="left: 1016px;"></div>
+            <div class="triangleStageGray" style="left: 1014px; "></div>
+        </div>
+        <div id="status">
+            <i class="fas fa-quote-left"></i> <b>
+                Nhà tuyển dụng đã xét lịch phỏng vấn. Bạn vui lòng
+                kiểm tra và xác nhận thời gian phỏng
+                vấn
+            </b><i class="fas fa-quote-right"></i>
+        </div>
+        <div id="content">
+            <div id="titleContent"><i class="fas fa-envelope"></i><b> THƯ MỜI PHỎNG VẤN</b></div>
+            <div id="result">Bạn đã đồng ý tham gia phỏng vấn. Hẹn gặp bạn tại buổi phỏng vấn</div>
+            <div id="result2">Bạn đã từ chối cuộc phỏng vấn.</div>
+            <div id="result3">Nhà tuyển dụng đã từ chối bạn. Hẹn gặp lại bạn vào đợt tuyển dụng sau <3</div>
+            <div id="horizontalLine"></div>
+            <div id="verticalLine"></div>
+            <div id="mainContent">
+                <div id="position"><i class="fas fa-external-link-alt"></i><b> Vị trí:</b> @ViewBag.Offer.OfferName</div>
+                <div class="line"></div>
+                <div id="time"><i class="far fa-clock"></i><b> Vào lúc:</b> @Model.Time</div>
+                <div class="line"></div>
+                <div id="interviewDate"><i class="far fa-calendar"></i><b> Ngày phỏng vấn:</b> @Model.Date</div>
+                <div class="line"></div>
+                <div id="interviewer"><i class="far fa-user"></i><b> Người phỏng vấn:</b> @ViewBag.Employee.EmployeeName</div>
+                <div class="line"></div>
+                <div id="address"><i class="fas fa-map-marker-alt"></i><b> Địa chỉ phỏng vấn:</b> @Model.Address</div>
+                <div class="line"></div>
+                <div id="note">
+                    <i class="far fa-edit"></i><b>Nội dung:</b> @Model.Note</div>
+
+                <div class="button" id="accept"><i class="far fa-check-square"></i>Tham gia</div>
+                
+                <div class="button" id="ignore"><i class="fas fa-times-circle"></i>Hủy nộp đơn</div>
+            </div>
+
+        </div>
+    </div>
+    <div id="offer" stt="@Model.OfferID"></div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Manage/InterviewLetter.js"></script>
+}
+

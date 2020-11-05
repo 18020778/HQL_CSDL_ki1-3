@@ -1,0 +1,270 @@
+﻿body {
+    background-color: rgb(236, 236, 236);
+}
+
+
+
+.button {
+    position: fixed;
+    border: 1px solid;
+    border-radius: 5px;
+    width: 180px;
+    float: right;
+    top: 55px;
+    right: 5vw;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    z-index: 2;
+    margin-top: 75px;
+}
+
+#applyJob {
+    color: white;
+    background-color: #f07e1d;
+}
+
+    #applyJob:hover {
+        background-color: rgb(133, 218, 53);
+        cursor: pointer;
+    }
+
+#saveJob {
+    border-color: rgb(180, 180, 180);
+    background-color: white;
+    top: 105px;
+}
+
+    #saveJob:hover {
+        background-color: rgb(173, 173, 173);
+        cursor: pointer;
+    }
+
+#colLeftMenu {
+    float: left;
+    width: 260px;
+    margin-top: 90px;
+    margin-left: 4%;
+}
+
+
+.textOverflowLine {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+}
+
+#tableOfContents {
+    float: left;
+    position: fixed;
+    width: 230px;
+    height: auto;
+    background-color: rgb(247, 247, 247);
+    padding: 10px;
+}
+
+    #tableOfContents i {
+        padding-top: 0px;
+        padding-right: 5px;
+    }
+
+.item {
+    float: left;
+    background-color: rgb(240, 239, 239);
+    padding: 10px 10px;
+    width: 92%;
+    height: auto;
+    margin-top: 5px;
+}
+
+    .item:hover {
+        background-color: #f07e1d;
+        cursor: pointer;
+    }
+
+#colRightMenu {
+
+    float: left;
+    width: 625px;
+    margin: 75px 4% 0px 30px;
+    z-index: 1;
+}
+
+#contactInfo img {
+    float: left;
+    width: 167px;
+    height: 150px;
+    margin: 20px;
+}
+
+#nameApplicant {
+    font-size: 25px;
+    width: 90%;
+    padding: 20px 20px 0px 20px;
+}
+
+#contactInfo vr {
+    float: right;
+    position: relative;
+    width: calc(100% - 210px);
+    height: 1px;
+    background-color: gray;
+    margin-top: -5px;
+    margin-right: 0px;
+}
+
+#positionApply {
+    float: left;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
+#oldApplicant {
+    float: left;
+    width: 60%;
+}
+#email {
+    float: left;
+    width: 60%;
+}
+#hotline {
+    float: left;
+    width: 60%;
+}
+#address {
+    float: left;
+    width: 60%;
+}
+.loadInfoButton {
+    float: left;
+    background-color: #75d69c;
+    box-shadow: 0 5px 0 #4ac97d;
+    padding: 5px;
+    width: 200px;
+    height: auto;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: white;
+    max-width: 50%;
+}
+
+    .loadInfoButton:hover {
+        background-color: #ffc175;
+        box-shadow: 0 5px 0 #f07e1d;
+        cursor: pointer;
+    }
+
+.contentJob {
+    float: left;
+    position: relative;
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+    .contentJob vr {
+        float: left;
+        position: absolute;
+        top: 15px;
+        left: 0px;
+        width: 3px;
+        height: 25px;
+        background-color: #f07e1d;
+    }
+
+.headerNews {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    width: 100%;
+    font-weight: 700;
+}
+
+.jobName .textOverflowLine {
+    -webkit-line-clamp: 2;
+}
+
+.contentJob span {
+    width: 100%;
+    float: left;
+    margin-left: 30px;
+    margin-top: 7px;
+}
+
+#time {
+    float: left;
+    margin-left: 30px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.onejob {
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 1250px) {
+    #colLeftMenu {
+        margin-left: 1%;
+    }
+
+    #path {
+        margin-left: 1%;
+    }
+
+    #colRightMenu {
+        margin-right: 1%;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    #colLeftMenu {
+        width: 25%;
+    }
+
+    #colRightMenu {
+        width: 50%;
+    }
+
+    .button {
+        right: 1%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    #colLeftMenu {
+        width: 93%;
+        margin-left: 30px;
+    }
+
+    #tableOfContents {
+        display: none;
+    }
+
+    #colRightMenu {
+        width: 95%;
+    }
+
+
+    .button {
+        float: left;
+        position: relative;
+        width: 94%;
+        left: 3.5%;
+        margin-top: 0px;
+    }
+
+    #applyJob {
+        margin-top: -20px;
+    }
+
+    #saveJob {
+        margin-top: -30px;
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,33 @@
+﻿#container-cv{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+#container-cv #cv-left{
+    display: block;
+    float: left;
+    width: 32%;
+    height: auto;
+    background-color: #34ba6a;
+    position: relative;
+}
+#cv-left #contain-img {
+    display: block;
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-left: calc(50% - 75px);
+    margin-top: 30px;
+    background-color:aqua;
+}
+#cv-left #contain-img img{
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-left: 10px;
+}
+#container-cv #cv-right{
+    float: left;
+    width: 68%;
+    height: auto;
+}

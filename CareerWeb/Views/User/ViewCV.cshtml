@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewCV";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var template = "TemplateCV_" + (string)ViewBag.Template;
+}
+@section cssInsert{
+    
+}
+<div id="Grid" style="float: left; margin-top: 120px; width: 70%; margin-left: 15%; margin-bottom: 20px;">
+    @{Html.RenderAction("Check", "User" , new { template = template });}
+</div>
+<div style="float: left; width: 100%;">
+    <a href="/SearchTemplate/@template?isPdf=true" style="float: left; width: 100%;">Click</a>
+</div>
+@section jsInsert{
+   
+    }

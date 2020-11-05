@@ -1,0 +1,87 @@
+﻿@model Model.EF.User
+@{
+    ViewBag.Title = "UserDetail";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header {
+    Detail
+}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("User Management", "Index")</li>
+    <li class="breadcrumb-item active">Detail</li>
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>User Information</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>UserId</td>
+                    <td>@Model.UserId</td>
+                </tr>
+                <tr>
+                    <td>UserName</td>
+                    <td>@Model.UserName</td>
+                </tr>
+                <tr>
+                    <td>UserBirthDay</td>
+                    <td>@Model.UserBirthDay</td>
+                </tr>
+                <tr>
+                    <td>UserEmail</td>
+                    <td>@Model.UserEmail</td>
+                </tr>
+                <tr>
+                    <td>UserMobile</td>
+                    <td>@Model.UserMobile</td>
+                </tr>
+                <tr>
+                    <td>UserArea</td>
+                    <td>@Model.UserArea</td>
+                </tr>
+                <tr>
+                    <td>UserAddress</td>
+                    <td>@Model.UserAddress</td>
+                </tr>
+                <tr>
+                    <td>Sex</td>
+                    <td>@Model.Sex</td>
+                </tr>
+                <tr>
+                    <td>AtSchool</td>
+                    <td>@Model.AtSchool</td>
+                </tr>
+                <tr>
+                    <td>School</td>
+                    <td>@Model.School</td>
+                </tr>
+                <tr>
+                    <td>GPA</td>
+                    <td>@Model.GPA</td>
+                </tr>
+                <tr>
+                    <td>CVLink</td>
+                    <td>@Model.CVLink</td>
+                </tr>
+                <tr>
+                    <td>Salary</td>
+                    <td>@Model.Salary</td>
+                </tr>
+                <tr>
+                    <td>PositionApply</td>
+                    <td>@Model.PositionApply</td>
+                </tr>
+                <tr>
+                    <td>CompleteProfile</td>
+                    <td>@Model.CompleteProfile</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>@Html.ActionLink("Return", "Index", null, new { @class = "btn btn-outline-primary" })</div>
+    </div>
+    <div class="col-lg-6">
+        <img src="@Model.UserImage" width="50%" height="auto" />
+    </div>
+</div>

@@ -1,0 +1,447 @@
+﻿body {
+    background-color: #f3f3f3;
+    margin: 0 0 0 0;
+}
+
+
+#wrap {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    height: auto;
+}
+
+    #wrap #row {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+        #wrap #row .rower {
+            margin-right: 5px;
+            margin-left: 5px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #wrap #row a {
+            text-decoration: none;
+            color: #f07e1d;
+        }
+
+            #wrap #row a:hover {
+                color: #3b5998;
+            }
+
+    #wrap #main {
+        background-color: #ffffff;
+        height: auto;
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+#main #search {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+}
+
+    #main #search .former {
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #main #search #key-word {
+        width: 28%;
+        height: 40px;
+        padding: 0px 8px 0px 8px;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+    }
+
+    #main #search #linh-vuc {
+        width: 22%;
+        height: 42px;
+        padding: 0px 8px 0px 8px;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+    }
+
+    #main #search #dia-diem {
+        width: 25%;
+        height: 42px;
+        padding: 0px 8px 0px 8px;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+    }
+
+    #main #search #tim-ho-so {
+        width: 9%;
+        height: 42px;
+        padding: 0px 8px 0px 8px;
+        font-size: 15px;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+        text-align: center;
+        line-height: 42px;
+        display: inline-block;
+        font-family: Tahoma;
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+        #main #search #tim-ho-so:hover {
+            color: #f07e1d;
+            background-color: #d3cecece;
+            cursor: pointer;
+        }
+
+#main #xu-ly {
+    margin-top: 15px;
+    margin-left: 70%;
+    margin-right: 15px;
+}
+
+    #main #xu-ly .xu-ly-er {
+        height: 30px;
+        padding: 0px 8px 0px 8px;
+        font-size: 13px;
+        font-style: italic;
+        color: orange;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+        text-align: center;
+        line-height: 30px;
+        font-family: Tahoma;
+        background-color: whitesmoke;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0px 10px 0px 10px;
+    }
+
+    #main #xu-ly #xoa-loc {
+        width: 45px;
+    }
+
+    #main #xu-ly #tim-nang-cao {
+        width: 80px;
+    }
+
+#main #search-more {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    background-color: #f0f8ff;
+    height: 250px;
+    padding: 30px 3% 40px 3%;
+    display: none;
+}
+
+    #main #search-more select {
+        float: left;
+        width: 46%;
+        height: 42px;
+        padding: 0px 8px 0px 8px;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 3px;
+        border: 1px solid #c5c5c5;
+        margin: 15px 2% 0px 2%;
+    }
+
+    #main #search-more #select-wrap {
+        margin-bottom: 130px;
+    }
+
+    #main #search-more #videoclip-wrap {
+        margin-left: 20px;
+        height: 30px;
+    }
+
+#videoclip-wrap {
+    width: auto;
+    padding-top: 12px;
+}
+
+    #videoclip-wrap input[type=checkbox] {
+        display: none;
+    }
+
+    #videoclip-wrap label {
+        position: relative;
+        padding-left: 35px;
+        font-size: 18px;
+        color: rgb(228, 155, 20);
+        font-family: Tahoma;
+    }
+
+    #videoclip-wrap span:before {
+        content: "";
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        background-color: #00eeff;
+        box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+        border-radius: 3px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    #videoclip-wrap input[type=checkbox]:checked + label span:before {
+        content: "\2713";
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+        font-size: 20px;
+        color: #051218;
+        text-align: center;
+        line-height: 25px;
+    }
+
+#search-more #thsnc-wrap {
+    text-align: center;
+}
+
+#search-more #tim-ho-so-nang-cao {
+    width: 180px;
+    height: 42px;
+    padding: 0px 8px 0px 8px;
+    font-size: 15px;
+    border-radius: 3px;
+    border: 1px solid #c5c5c5;
+    display: inline-block;
+    text-align: center;
+    line-height: 42px;
+    font-family: Tahoma;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#main #search-more #tim-ho-so-nang-cao:hover {
+    color: #f07e1d;
+    background-color: #d3cecece;
+    font-weight: bold;
+}
+
+#result {
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    #result h1 {
+        font-size: 20px;
+        font-weight: normal;
+        border-bottom: 1px solid #c5c5c5;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        color: #f07e1d;
+    }
+
+    #result #job .candidate {
+        background-color: #ffffff;
+        min-height: 150px;
+        width: 100%;
+        margin-bottom: 30px;
+        padding-top: auto;
+        padding-bottom: auto;
+    }
+
+#job .candidate .profile-img {
+    float: left;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.profile-img img {
+}
+
+#job .candidate .profile-detail {
+    float: left;
+    margin-left: 50px;
+    margin-top: 15px;
+    width: 64%;
+    
+}
+
+.profile-detail .candidate-name {
+    text-decoration: none;
+    color: #f07e1d;
+    font-size: 20px;
+
+}
+
+.profile-detail .detail-list {
+    list-style: none;
+    padding-left: 0px;
+    font-size: 17px;
+    
+}
+
+    .profile-detail .detail-list .major {
+        -webkit-box-orient: vertical;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+#job .candidate .final-col {
+    float: right;
+    margin-right: 30px;
+    text-align: center;
+}
+
+.final-col .save-button {
+    background-color: #ffc107;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: bold;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.final-col i {
+    font-size: 15px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    display: block;
+}
+
+@media screen and (max-width: 1234px) {
+    #wrap {
+        max-width: 1050px;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    #wrap {
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #wrap {
+        max-width: 820px;
+    }
+
+    #job .candidate .profile-detail {
+        width: 55%;
+    }
+ }
+
+@media screen and (max-width: 850px) {
+    #wrap {
+        margin-left: 13px;
+        margin-right: 13px;
+    }
+
+    #main #search #key-word {
+        width: 97%;
+    }
+
+    #main #search #linh-vuc {
+        width: 100%;
+    }
+
+    #main #search #dia-diem {
+        width: 100%;
+    }
+
+    #main #search #tim-ho-so {
+        width: 97%;
+    }
+
+    #main #xu-ly {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+
+    #main #search-more {
+        width: 90%;
+        height: 350px;
+        margin-top: 20px;
+    }
+
+        #main #search-more select {
+            width: 98%;
+            margin: 15px 1% 0px 1%;
+        }
+
+        #main #search-more #tim-ho-so-nang-cao {
+            width: 95%;
+        }
+
+        #main #search-more #select-wrap {
+            margin-bottom: 240px;
+        }
+
+        #main #search-more #videoclip-wrap {
+            margin-bottom: 0px;
+        }
+
+    #job .candidate .profile-detail {
+        width: 53%;
+        margin-right: 30px;
+    }
+}
+
+
+@media screen and (max-width: 770px) {
+
+    #result #job .candidate {
+        height: 225px;
+    }
+
+    #job .candidate .profile-detail {
+        margin-left: 5%;
+        margin-right: 10px;
+        width: 75%;
+    }
+
+    #job .candidate .profile-img {
+        margin-left: 5%;
+    }
+
+    #job .candidate .final-col {
+        float: left;
+        width: 100%;
+    }
+
+    .final-col .save-button {
+        width: 100%;
+    }
+
+    .final-col i {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #job .candidate .profile-detail {
+        margin-left: 4.6px;
+        margin-right: 4.6px;
+    }
+
+    #job .candidate .profile-img {
+        margin-left: 4.6px;
+    }
+}
+
+.pagelist {
+    text-align: right;
+}

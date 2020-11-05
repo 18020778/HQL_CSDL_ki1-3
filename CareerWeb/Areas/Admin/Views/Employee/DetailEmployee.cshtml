@@ -1,0 +1,56 @@
+﻿@model Model.EF.Employee
+@{
+    ViewBag.Title = "DetailEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header {
+    Detail
+}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item">@Html.ActionLink("Employee Management", "Index")</li>
+    <li class="breadcrumb-item active">Detail</li>
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h3>Employee Information</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>EmployeeID</td>
+                    <td>@Model.EmployeeID</td>
+                </tr>
+                <tr>
+                    <td>EnterpriseID</td>
+                    <td>@Model.EnterpriseID</td>
+                </tr>
+                <tr>
+                    <td>EmployeeName</td>
+                    <td>@Model.EmployeeName</td>
+                </tr>
+                <tr>
+                    <td>PositionName</td>
+                    <td>@Model.Position</td>
+                </tr>
+                <tr>
+                    <td>BirthDay</td>
+                    <td>@Model.BirthDay</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td>Mobile</td>
+                    <td>@Model.Mobile</td>
+                </tr>
+                <tr>
+                    <td>Position</td>
+                    <td>@Model.Position</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>@Html.ActionLink("Return", "Index", null, new { @class = "btn btn-outline-primary" })</div>
+    </div>
+</div>

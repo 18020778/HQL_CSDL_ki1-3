@@ -1,0 +1,157 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f3f3f3;
+}
+
+
+#wrap {
+    padding-top: 70px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#wrap #row {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+#wrap #row .rower {
+            margin-right: 5px;
+            margin-left: 5px;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+#wrap #row a {
+            text-decoration: none;
+            color: #f07e1d;
+        }
+
+#wrap #row a:hover {
+                color: #3b5998;
+            }
+
+#wrap #main {
+        background-color: #ffffff;
+        height: auto;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
+    }
+
+#wrap #main #title {
+            padding: 20px 20px 0px 20px;
+        }
+
+#wrap #main #title h1 {
+                margin: 20px 0px 0px 0px;
+                font-size: 18px;
+                text-transform: uppercase;
+            }
+
+#main #tab-content {
+    clear: left;
+    padding-top: 20px;
+    margin-top: 10px;
+    border-top: #f07e1d 2px solid;
+}
+
+#tab-content .utility .display-utility {
+    display: inline-block;
+    font-weight: normal;
+}
+
+.utility .display-utility select {
+    width: 110px;
+    height: 32px;
+    border: 1px solid #c5c5c5 !important;
+    border-radius: 3px;
+    padding: 0 0 0 7px;
+}
+
+
+#tab-content .utility .search-utility {
+    font-weight: normal;
+    float: right;
+}
+
+.utility .search-utility input {
+    width: 180px;
+    height: 32px;
+    border: 1px solid #c5c5c5 !important;
+    border-radius: 3px;
+    padding: 0 0 0 7px;
+}
+
+#list-interview {
+    width: 100%;
+    padding-top: 20px;
+}
+
+    #list-interview table {
+        width: 100%;
+        border-collapse: separate;
+        border: 1px solid #ddd;
+    }
+
+table th, table td {
+    border: 1px solid #ddd;
+}
+
+table thead tr {
+    height: 40px;
+    background-color: rgb(241, 243, 113);
+    color: gray;
+}
+
+table tbody td {
+    height: 60px;
+    background-color: mintcream;
+    text-align: center;
+    padding: 5px 0px 5px 5px;
+}
+
+.next, .prev {
+    margin-top: 10px;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 22px;
+    color: #d1d0d7;
+    text-align: center;
+    border: 1px solid #eefaf9;
+    border-radius: 4px;
+    background-color: #e6e6f6;
+    cursor: pointer;
+}
+
+.interview-rows .candidate-name a {
+    text-decoration: none;
+    color: orangered;
+}
+
+    .next:hover, .prev:hover {
+        background-color: #f74a4a;
+        color: #ffffff;
+    }
+
+.page {
+    text-align: right;
+}
+
+.interview-rows .action .detail-button {
+    background-color: #5bc0de;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    line-height: 40px;
+    cursor: pointer;
+}

@@ -1,0 +1,105 @@
+﻿@model List<Model.Models.InterviewInfo>
+
+
+@{
+    ViewBag.Title = "InterviewSchedule";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+
+    <link href="http://localhost:58154/Assets/Client/Css/Employee/InterviewSchedule.css" rel="stylesheet" />
+}
+
+<div id="wrap">
+    <div id="row">
+        <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng : Quản lý</a>
+        /<span id="danh-sach" class="rower">Danh sách lịch phỏng vấn</span>
+    </div>
+
+    <div id="main">
+        <div id="title">
+            <h1> Lịch phỏng vấn </h1>
+        </div>
+
+        <div id="tab-content">
+            <div id="utility" class="utility">
+                <div id="display-utility" class="display-utility">
+                    <label>
+                        Hiển thị
+                        <select id="display" name="hien-thi">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div id="search-utility" class="search-utility">
+                    <label>
+                        Tìm kiếm
+                        <input type="text" name="tim-kiem" id="search" />
+                    </label>
+                </div>
+            </div>
+
+            <div id="tab" class="tab">
+                <div id="list-interview">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ứng viên</th>
+                                <th>Vị trí</th>
+                                <th>Ngày</th>
+                                <th>Giờ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="interview-rows">
+                                    <td class="candidate-name">
+                                        <a href="#">
+                                            @item.CandidateName
+                                        </a>
+                                    </td>
+
+                                    <td class="offer-name">
+                                        @item.OfferName
+                                    </td>
+
+                                    <td class="date">
+                                        @item.Date
+                                    </td>
+
+                                    <td class="time">
+                                        @item.Time
+                                    </td>
+
+                                    <td class="action">
+                                        <div class="detail-button" user="@item.CandidateID" offer="@item.OfferID" onclick="actionDetail()">
+                                            Chi tiết
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="page">
+                <div class="prev"><i class="fa fa-chevron-left"></i></div>
+                <div class="next"><i class="fa fa-chevron-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section jsInsert{
+
+
+    <script src="http://localhost:58154/Assets/Client/Js/Employee/InterviewSchedule.js"></script>
+}

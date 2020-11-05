@@ -1,0 +1,226 @@
+﻿@model List<Model.Models.ShowFullJob>
+@using Model.Dao
+@{
+    ViewBag.Title = "ResultForSearchJob";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var EnterpriseDao = new EnterpriseDao();
+    var OfferJobDao = new OfferJobDao();
+    var SalaryDao = new SalaryDao();
+
+}
+@section cssInsert {
+    <link href="~/Assets/Client/Css/User/ResultForSearchJob.css" rel="stylesheet" />
+}
+
+<div id="path">
+    <a href="" style="color: #f07e1d;"><i class="fa fa-home"></i> Việc làm </a>
+    <span> / Cẩm nang nghề nghiệp /...</span>
+</div>
+
+
+@if (Model != null && Model.Count != 0)
+{
+    foreach (var item in Model)
+    {
+        <div id="colLeftMenu">
+            <div id="generalDescrip">
+                <img src="@item.ImageLogo" />
+                <div id="nameCompany"><b>@item.EnterpriseName</b></div>
+                <div id="typeCompany" style="padding-bottom: 5px;">
+                    <label for="typeCompany">
+                        <i class="fa fa-users"></i>
+                        <b>Loại hình: </b> @item.NameOfEnterprise
+                    </label>
+                </div>
+                <div id="companySize" style="padding-bottom: 5px;">
+                    <label for="companySize">
+                        <i class="fa fa-expand"></i>
+                        <b>Quy mô: </b>@item.AmountSize
+                    </label>
+                </div>
+                <div id="headQuarter" style="padding-bottom: 5px;">
+                    <label for="headQuarter">
+                        <i class="fa fa-building"></i>
+                        <b>Trụ sở: </b>@item.NameArea
+                    </label>
+
+                </div>
+                <div id="address" style="padding-bottom: 5px;">
+                    <label for="address">
+                        <i class="fa fa-map-marker"></i>
+                        <b>Địa chỉ: </b> @item.JobAddress
+                    </label>
+
+                </div>
+            </div>
+            <div id="tableOfContents">
+                <div>
+                    <div class="item" id="i1"><i class="fas fa-caret-right"></i>THÔNG TIN TUYỂN DỤNG</div>
+                    <div class="item" id="i2"><i class="fas fa-caret-right"></i>ĐIỀU KIỆN LÀM VIỆC</div>
+                    <div class="item" id="i3"><i class="fas fa-caret-right"></i>MÔ TẢ CÔNG VIỆC</div>
+                    <div class="item" id="i4"><i class="fas fa-caret-right"></i>QUYỀN LỢI</div>
+                    <div class="item" id="i5"><i class="fas fa-caret-right"></i>HỒ SƠ</div>
+                    <div class="item" id="i6"><i class="fas fa-caret-right"></i>KỸ NĂNG</div>
+                </div>
+
+            </div>
+        </div>
+        <div id="colRightMenu">
+            <div id="imageBody">
+                <div id="image">
+                    <div id="nameJob">@item.OfferName</div>
+                    <vr></vr>
+                    <div id="salary">
+                        <i class="fas fa-dollar-sign"> </i>
+                        <b style="color: white;">Lương:</b>
+                        <span style="color: rgb(255, 230, 0);">@item.Amount USD</span>
+                    </div>
+                    <div id="reward">
+                        <i class="fa fa-gift"> </i>
+                        <b style="color: white;">Thưởng:</b>
+                        <span style="color: rgb(255, 230, 0);">@(item.Bonus != null? item.Bonus: "0") USD</span>
+                    </div>
+                    <div class="button" id="applyJob">NỘP HỒ SƠ</div>
+                    <div class="button" id="saveJob">LƯU VIỆC LÀM</div>
+                </div>
+            </div>
+            <div class="contentJob" id="employmentInfo">
+                <vr></vr>
+                <div class="headerNews">THÔNG TIN TUYỂN DỤNG</div>
+                <br><br><br>
+                <span>
+                    <i class="fa fa-building"></i>
+                    <b>Công ty: </b>
+                    @item.EnterpriseName
+                </span>
+                <span>
+                    <i class="fa fa-th-list"></i>
+                    <b>Danh mục: </b>
+                    @ViewBag.ListFullJobName
+                </span>
+                <span>
+                    <i class="fa fa-map-marker"></i>
+                    <b>Nơi làm: </b>
+                    @item.JobAddress
+                </span>
+                <span>
+                    <i class="far fa-calendar"></i>
+                    <b>Hạn nộp: </b>
+                    @item.OfferLimitDate
+                </span>
+            </div>
+            <div class="contentJob" id="workingConditions">
+                <vr></vr>
+                <div class="headerNews">ĐIỀU KIỆN LÀM VIỆC</div>
+                <br><br><br>
+                <span>
+                    <i class="fa fa-users"></i>
+                    <b>Số lượng cần tuyển: </b>
+                    @item.AmountNum
+                </span>
+                <span>
+                    <i class="fa fa-address-card"></i>
+                    <b>Bằng cấp: </b>
+                    @item.NameLevel
+                </span>
+                <span>
+                    <i class="fa fa-briefcase"></i>
+                    <b>Kinh nghiệm làm việc: </b>
+                    Không yêu cầu
+                </span>
+                <span>
+                    <i class="fa fa-venus-mars"></i>
+                    <b>Giới tính: </b>
+                    @(item.Sex != null? @item.Sex : "Không yêu cầu")
+                </span>
+                <span>
+                    <i class="fas fa-share"></i>
+                    <b>Cấp bậc: </b>
+                    @item.NamePosition
+                </span>
+            </div>
+            <div class="contentJob" id="jobDescription">
+                <vr></vr>
+                <div class="headerNews">MÔ TẢ CÔNG VIỆC</div>
+                <br><br>
+                @Html.Raw(item.OfferDescription)
+            </div>
+            <div class="contentJob" id="entitlements">
+                <vr></vr>
+                <div class="headerNews">QUYỀN LỢI ỨNG VIÊN</div>
+                <br><br>
+                <ul>
+                    <li> Ăn Trưa Miễn Phí</li>
+                    <li> Chế độ Thưởng Hấp Dẫn Và đa Dạng</li>
+                    <li> Không Giới Hạn Ngày Phép Có Lương</li>
+                </ul>
+            </div>
+            <div class="contentJob" id="profileRequest">
+                <vr></vr>
+                <div class="headerNews">YÊU CẦU HỒ SƠ</div>
+                <br><br>
+                <ul>
+                    <li> Bằng cấp liên quan</li>
+                    <li> Hồ sơ xin việc</li>
+                    <li> CV</li>
+                </ul>
+            </div>
+            <div class="contentJob" id="skillsNeeded">
+                <vr></vr>
+                <div class="headerNews">KỸ NĂNG CẦN CÓ</div>
+                <br><br>
+
+            </div>
+
+            @*<div id="relatedJob">
+            <div id="title">Việc làm liên quan</div>
+            <div id="line"></div>
+            @foreach (var it in ViewBag.ListOfferJob)
+            {
+                <div class="jobContainer">
+                    <div class="logo">
+                        <img src="@it.OfferImage" />
+                    </div>
+                    <h3 class="jobName">
+                        <div class="textOverflowLine">@it.OfferName</div>
+                    </h3>
+                    <div class="companyName">
+                        <div class="textOverflowLine">
+                            <i class="fa fa-building"></i>
+                            <b>Công ty:</b>
+                            <span>@(EnterpriseDao.EnterpriseName(it.EnterpriseID))</span>
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div class="textOverflowLine">
+                            <i class="fa fa-map-marker"></i>
+                            <b>Nơi làm việc:</b>
+                            <span>@it.JobAddress</span>
+                        </div>
+                    </div>
+                    <div class="salary">
+                        <i class="fas fa-dollar-sign"></i>
+                        <b>Lương:</b>
+                        <span>@(SalaryDao.AmountSalary(it.OfferSalary))</span>
+                        <span>USD</span>
+                    </div>
+                    <div class="deadline">
+                        <i class="far fa-calendar-alt"></i>
+                        <b>Hạn nộp:</b>
+                        <span>@it.OfferLimitDate</span>
+                    </div>
+                    <div class="reward">
+                        <i class="fa fa-gift"></i>
+                        <b>Thưởng:</b>
+                        <span>@(it.Bonus != null ? it.Bonus : "0 USD")</span>
+                    </div>
+                </div>
+               }
+        </div>*@
+        </div>
+    }
+}
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/ResultForSearchJob.js"></script>
+}
+

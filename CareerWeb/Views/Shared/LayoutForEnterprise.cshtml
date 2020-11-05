@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet" />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckfinder/ckfinder.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="~/Assets/Client/Css/Common/Header-FooterForEnterprise.css" rel="stylesheet" />
+    @RenderSection("cssInsert", required: false)
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <!--responsive-->
+                <div class="responsive_menu_icon">
+                    <i class="fas fa-bars"></i>
+                    <span>MENU</span>
+                </div>
+                <!--Logo-->
+                <div class="logo">
+                        <div class="logo_box">
+                            <img src="~/Assets/Client/Img/Common/career-design-sketch-name.png" />
+                        </div>
+                </div>
+                <!--Menu-->
+                <div class="menu">
+                    <div class="element">
+                        <a href="../Enterprise/EnterpriseHome">
+                            <div class="element_box">
+                                <i class="fas fa-home"></i>
+                                <span>TRANG CHỦ</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="../Employee/SearchCandidate">
+                            <div class="element_box">
+                                <i class="fas fa-search"></i>
+                                <span>TÌM ỨNG VIÊN</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="element">
+                        <a href="../Employee/ListAndCreateOffer">
+                            <div class="element_box">
+                                <i class="fas fa-leaf"></i>
+                                <span>ĐĂNG TIN TUYỂN DỤNG</span>
+                            </div>
+                        </a>
+
+                    </div>
+
+                </div>
+                <div class="user" style="position: relative;">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <div class="account">
+                            <div class="log_in">
+                                <i class="fas fa-user"></i>
+                                <span>Đăng nhập</span>
+                            </div>
+                            <a href="/Account/RegisterCommon" style="color: unset; text-decoration: unset;">
+                                <div class="registration">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Đăng kí</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="login_box">
+                            <div class="fog_background"></div>
+                            <div class="login_form">
+                                    <h1>Đăng nhập</h1>
+                                    <div class="input_box">
+                                        <input type="text" id="acc" placeholder="Username">
+                                    </div>
+                                    <div class="input_box">
+                                        <input type="password" id="pass" placeholder="Password">
+                                    </div>
+                                    <div class="btn_box">
+                                        <button>Đăng nhập</button>
+                                    </div>
+                                    <div><a class="forgot" href="#">Quên mật khẩu?</a></div>
+                                    <div><a class="register" href="#">Chưa có tài khoản?</a></div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {  
+                        var acc = new Model.Dao.AccountDao().FindAccountById(int.Parse(User.Identity.Name));
+                        var typeAccount = acc.TypeOfAccount;
+                        <div id="control-account"><i class="fa fa-user-circle" style="margin-right: 5px;"></i>Quản lý tài khoản</div>
+                        if (typeAccount == "Enterprise")
+                        {
+                            <div id="container-control">
+                                <a href="/User/Index">
+                                    <div class="each-part"><i class="fa fa-edit"></i>Sửa thông tin công ty</div>
+                                </a>
+                                <div class="each-part"><i class="fa fa-briefcase"></i>Danh sách ứng tuyển</div>
+                                <div class="each-part"><i class="fa fa-calendar-check-o"></i>Thành viên công ty</div>
+                                <div class="each-part"><i class="fa fa-cog"></i>Cài đặt</div>
+                                <a href="/Account/Logout">
+                                    <div class="each-part"><i class="fa fa-sign-out"></i>Đăng xuất</div>
+                                </a>
+                            </div>
+                        }
+                        else if(typeAccount == "Employee")
+                        {
+                            <div id="container-control">
+                                <a href="/User/Index">
+                                    <div class="each-part"><i class="fa fa-edit"></i>Sửa thông tin</div>
+                                </a>
+                                <a href="/Employee/ListAndCreateOffer">
+                                    <div class="each-part"><i class="fa fa-briefcase"></i>Tuyển dụng</div>
+                                </a>
+                                <div class="each-part"><i class="fa fa-calendar-check-o"></i>Lịch phỏng vấn</div>
+                                <div class="each-part"><i class="fa fa-cog"></i>Cài đặt</div>
+                                <a href="/Employee/ListArticleEmployee">
+                                    <div class="each-part"><i class="fa fa-newspaper-o"></i>Bài viết</div>
+                                </a>
+                                <a href="/Account/Logout">
+                                    <div class="each-part"><i class="fa fa-sign-out"></i>Đăng xuất</div>
+                                </a>
+                            </div>
+                        }
+                    }
+                    @if (!User.Identity.IsAuthenticated)                    {
+                    <!--Searching-->
+                    <div class="searching">NGƯỜI TÌM VIỆC</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="responsive_menu">
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-search"></i>
+                    <span>TÌM VIỆC LÀM</span>
+                </div>
+            </div>
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-leaf"></i>
+                    <span>CÔNG TY</span>
+                </div>
+            </div>
+            <div class="res_element">
+                <div class="res_element_box">
+                    <i class="fas fa-file-alt"></i>
+                    <span>TẠO CV</span>
+                </div>
+            </div>
+            <div class="res_searching">
+                <span>NHÀ TUYỂN DỤNG</span>
+            </div>
+        </div>
+    </header>
+    <div class="content-main">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_element_1">
+                <span>GIỚI THIỆU VỀ WEBSITE</span>
+                <p><b>CareerWeb</b> là website <a href="#">đăng tin tuyển dụng miễn phí</a> và <a href="#">tìm việc làm</a> theo lĩnh vực, khu vực, từ khóa để tìm công việc phù hợp với bạn! Bạn có thể <a href="#">tạo CV ấn tượng</a> ở đây.</p>
+            </div>
+            <div class="footer_element_2">
+                <span>THÔNG TIN LIÊN HỆ</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-home"></i><a href="#">E3, 144 Xuân Thủy, Cầu Giấy, Hà Nội</a></li>
+                        <li><i class="fas fa-globe-americas"></i><a href="#">uet@vnu.edu.vn</a></li>
+                        <li><i class="fas fa-phone-alt"></i><a href="#">024.37547.461, 024.37547.460</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i><a href="#">https://uet.vnu.edu.vn/</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_element_3">
+                <span>MENU</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm việc làm</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Đăng tin tuyển dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm hồ sơ xin việc</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Thoải thuận sử dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Sơ đồ Website</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_element_3">
+                <span>LINK</span>
+                <nav>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tạo CV miễn phí</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Tìm việc</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Dịch vụ tuyển dụng</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Làm clip quảng cáo</a></li>
+                        <li><i class="fas fa-chevron-right"></i><a href="#">Dịch vụ Quản lí nhân sự</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="developer">
+            <span></span>
+        </div>
+    </footer>
+
+    <!--JAVASCRIPT-->
+    <script src="~/Assets/Client/Js/Header-Footer/Header-FooterForEnterprise.js"></script>
+    @RenderSection("jsInsert", required: false)
+</body>
+</html>

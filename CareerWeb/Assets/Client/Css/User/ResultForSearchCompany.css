@@ -1,0 +1,428 @@
+﻿
+.page-wrapper {
+    position: relative;
+}
+
+.career-subheader {
+    top: 60px;
+    position: relative;
+    min-height: 320px;
+    margin-bottom: -190px;
+}
+
+.banner {
+    background-image: url('../../Img/User/ImageSearchCompany/img-company.png');
+    background-size: cover;
+    background-position-y: bottom;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content {
+    padding: 80px 0 10px 0;
+    float: left;
+    width: 100%;
+}
+
+.main-section {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width:1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+
+    ;
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.company-info {
+    float: left;
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #ececec;
+    margin-bottom: 30px;
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+@media screen and (min-width: 960px) {
+    .company-info {
+        width: 100%;
+    }
+}
+
+.img-thumbnail {
+    float: left;
+    width: 150px;
+    height: 150px;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+i {
+    color: #f07e1d;
+}
+
+
+
+#company-name {
+    margin-bottom: 13px;
+    font-size: 26;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.company-info-option {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-inline-start: 0;
+}
+
+    .company-info-option li {
+        list-style: none;
+        float: left;
+        width: 100%;
+    }
+
+a {
+    text-decoration: none;
+}
+
+.add-review {
+    float: left;
+    color: #f07e1d;
+    font-weight: 600;
+    padding: 13px 15px;
+    border: 1px solid #f07e1d;
+}
+
+.company-detail-wrap {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+@media screen and (min-width: 768px) {
+    .company-detail-wrap {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.company-detail-content {
+    padding: 30px;
+    margin-bottom: 0;
+    float: left;
+    width: 95%;
+    border: 1px solid #efefef;
+}
+
+.company-overview {
+    float: left;
+    width: 100%;
+    margin: 8px 0;
+}
+
+    .company-overview ul li {
+        list-style: none;
+        margin-bottom: 24px;
+    }
+
+@media screen and (min-width: 768px) {
+    .overview-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .overview-item {
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -4px;
+        width: 100%;
+    }
+}
+
+.company-overview ul li i {
+    font-size: 30px;
+}
+
+.item-text {
+    font-weight: 600px;
+    padding-left: 53px;
+    position: relative;
+    top: -30px;
+}
+
+    .item-text small {
+        font-size: 14px;
+        font-weight: 400px;
+        display: block;
+        line-height: 1;
+    }
+
+.company-joblist {
+    float: left;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+    .company-joblist ul {
+        padding-inline-start: 0;
+    }
+
+        .company-joblist ul li {
+            list-style: none;
+            margin-bottom: 20px;
+            position: relative;
+            width: 100%;
+            padding: 15px 0;
+        }
+
+
+@media screean and (min-width: 768px) {
+    .job {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.joblist-title {
+    float: left;
+    width: 100%;
+}
+
+.job {
+    float: left;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.job-wrap {
+    float: left;
+    width: 100%;
+    border: 1px solid #ececec;
+    padding: 15px;
+    position: relative;
+}
+
+.company-img {
+    width: 150px;
+    border: 1px solid #ececec;
+    float: left;
+}
+
+.job-info {
+    margin-left: 180px;
+}
+
+#job-info-option {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+    #job-info-option li {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+div, label {
+    margin: 0;
+    padding: 0;
+}
+
+.comment {
+    width: 100%;
+}
+
+.add-comment {
+    background-color: #f07e1d;
+    color: #ffffff;
+    height: 30px;
+    width: 80px;
+    float: left;
+    border: 1px solid;
+}
+
+#company-rating {
+    position: relative;
+    width: 100%;
+    padding: 0 15px;
+    float: left;
+}
+
+@media screen and (min-width: 990px) {
+    .comment {
+        width: 58.3%;
+    }
+
+    .star-rating {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .comment {
+        width: 100%;
+    }
+
+    .star-rating {
+        width: 100%;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+#comment-area {
+    height: 80px;
+    width: 100%;
+}
+
+div.stars {
+    width: 270px;
+    display: inline-block;
+}
+
+input.star {
+    display: none;
+}
+
+label.star {
+    float: right;
+    padding: 10px;
+    font-size: 36px;
+    color: #444;
+    transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 20px #e2e2e2;
+}
+
+input.star-1:checked ~ label.star:before {
+    color: #F62;
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+    content: '\f006';
+    font-family: FontAwesome;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    float: left;
+}
+
+.rating {
+    cursor: not-allowed;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.empty-stars {
+    color: #aaaaaa;
+}
+
+.rating-sumary-wrap {
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    display: inline-block;
+}
+
+.uncontrol-star {
+    display: inline-block;
+    margin: 0 3px;
+    text-align: center;
+}
+
+.star-icon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23ebebeb%22%20stroke%3D%22%23ebebeb%22%20d%3D%22M20.6%2011l-4.6-10.5-4.6%2010.5h-10.8l7.8%207.9-3%2012.1%2010.6-6%2010.6%206-3-12.1%207.8-7.9z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+    background-size: cover;
+}
+
+.filled-stars {
+    width: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: auto;
+    overflow: hidden;
+    transition: width 0.25s ease;
+}
+
+.star-icon-filled {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23ffc106%22%20stroke%3D%22%23ebebeb%22%20d%3D%22M20.6%2011l-4.6-10.5-4.6%2010.5h-10.8l7.8%207.9-3%2012.1%2010.6-6%2010.6%206-3-12.1%207.8-7.9z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
+    background-size: cover;
+}

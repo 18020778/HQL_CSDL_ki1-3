@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "SearchCandidateResult";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+}
+
+@section cssInsert{
+
+    <link href="~/Assets/Client/Css/Employee/SearchCandidateResult.css" rel="stylesheet" />
+}
+
+
+
+
+<div id="wrap">
+    <div id="row">
+        <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng</a>
+        /<a id="tim-ho-so" class="rower" href="/SearchCandidate">Tìm hồ sơ ứng viên</a>/
+        <span id="ket-qua" class="rower">Kết quả tìm hồ sơ YFMF đang có @ViewBag.ListUser.Count CV được tìm thấy!</span>
+    </div>
+
+    <div id="main">
+        <div id="search">
+            <form>
+                <input type="text" id="key-word" class="former" placeholder="Tên ứng viên" />
+                <select id="linh-vuc" class="former" name="linhvuc">
+                    <option hidden value="0">Lĩnh vực</option>
+                    @foreach (var item in ViewBag.ListJobMain)
+                    {
+                        <option value="@item.JobID">@item.JobName</option>
+                    }
+                </select>
+                <select id="dia-diem" class="former" name="diadiem">
+                    <option hidden value="0">Địa điểm làm việc</option>
+                    @foreach (var item in ViewBag.ListArea)
+                    {
+                        <option value="@item.AreaId">@item.NameArea</option>
+                    }
+                </select>
+                <div id="tim-ho-so" class="former" onclick="search()">Tìm hồ sơ</div>
+            </form>
+        </div>
+
+        <div id="xu-ly">
+            <div id="tim-nang-cao" class="xu-ly-er">Tìm nâng cao</div>
+            <div id="xoa-loc" class="xu-ly-er" onclick="refresh()">Xóa lọc</div>
+        </div>
+
+        <div id="search-more">
+            <div id="select-wrap">
+                <select id="TTKN" name="timtheokinhnghiem" class="tt-er">
+                    <option hidden>Tìm theo kinh nghiệm</option>
+                    <option>Không yêu cầu</option>
+                    <option>K/n 1~3 năm</option>
+                    <option>K/n 3~5 năm</option>
+                    <option>K/n hơn 5 năm</option>
+                </select>
+
+
+                <select id="TTML" name="timtheomucluong" class="tt-er">
+                    <option hidden>Tìm theo mức lương</option>
+                    <option>&lt;&nbsp;5.000.000 VNĐ</option>
+                    <option>5.000.000 VNĐ ~ 10.000.000 VNĐ</option>
+                    <option>10.000.000 VNĐ ~ 20.000.000 VNĐ</option>
+                    <option>&gt;&nbsp;20.000.000 VNĐ</option>
+                </select>
+
+
+                <select id="TTNN" name="timtheongoaingu" class="tt-er">
+                    <option hidden>Tìm theo ngoại ngữ</option>
+                    <option>Việt Nam</option>
+                    <option>Anh</option>
+                    <option>Trung Quốc</option>
+                    <option>Hàn Quốc</option>
+                    <option>Tây Ban Nha</option>
+                    <option>Nhật Bản</option>
+                    <option>Pháp</option>
+                    <option>Đức</option>
+                    <option>Hoa Kỳ</option>
+                </select>
+
+                <select id="TTTDNN" name="timtheotrinhdongoaingu" class="tt-er">
+                    <option hidden>Tìm theo trình độ ngoại ngữ</option>
+                    <option>Sơ cấp</option>
+                    <option>Trung cấp</option>
+                    <option>Cao cấp</option>
+                </select>
+            </div>
+
+            <div id="videoclip-wrap">
+                <input type="checkbox" value="1" id="videoclip-check" name="videoclip" />
+                <label for="videoclip-check"><span>Có video clip giới thiệu</span></label>
+            </div>
+
+            <div id="thsnc-wrap">
+                <div id="tim-ho-so-nang-cao">Tìm hồ sơ nâng cao</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="result">
+        <h1>&nbsp;YFMF tìm thấy @ViewBag.ListUser.Count CV ứng viên</h1>
+        <div id="job">
+            @foreach (var item in ViewBag.ListUser)
+            {
+                <div class="candidate">
+                    <a class="profile-img" href="#">
+                        <img src=@item.UserImage alt="" />
+                    </a>
+
+                    <div class="profile-detail">
+                        <a class="candidate-name" href="#">@item.UserName<span></span></a>
+                        <ul class="detail-list">
+                            <li class="major">
+                                <b>Chuyên ngành:&nbsp;</b>
+                                @for (int i = 0; i < item.UserMajorName.Count; i++)
+                                {
+                                    <span>@item.UserMajorName[i]&sbquo; </span>
+                                }
+                            </li>
+                            <li>
+                                <b>Địa điểm:&nbsp;</b>
+                                <span>@item.UserArea</span>
+                            </li>
+                            <li>
+                                <b>Lương:&nbsp;</b>
+                                <span>@item.UserSalary</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="final-col">
+                        <i>Cập nhập:&nbsp;<span>22/07/2020</span></i>
+                        <div class="save-button">Lưu hồ sơ</div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/SearchCandidateResult.js"></script>
+}

@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterForEmployee</title>
+    <link href="~/Assets/Client/Css/Register/RegisterForEmployee.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id="choose-box-first">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <span>Tài khoản : </span><br />
+        <input type="text" placeholder="abcd@gmail.com" id="email" /><br />
+        <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
+        <span>Mật khẩu : </span><br />
+        <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
+        <div id="alert-error-pass" class="alert-error" style="top: 190px;">Nhập mật khẩu quá ít ký tự</div>
+        <span>Nhập lại mật khẩu : </span><br />
+        <input type="password" id="retype" /><br />
+        <div id="alert-error-retype" class="alert-error" style="top: 275px;">Mật khẩu không trùng khớp</div>
+        <button id="submit-first">SUBMIT</button><br />
+        <span id="title-vertify">Nhập mã xác nhận chúng tôi đã gửi đến email của bạn : </span><br />
+        <input type="text" id="codeVertify" placeholder="Nhập 6 chữ số trong mã code" />
+        <button id="submit-second">SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="choose-box-second">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <div class="container-input">
+            <span>Họ và tên : </span><br />
+            <input type="text" value="" id="fullName" placeholder="Họ tên"/>
+        </div>
+        <div class="container-input">
+            <span>Công ty :</span><br />
+            <input type="text" value="" id="NameEnteprise" placeholder="Tên công ty" list="ListEnterprise" />
+            <datalist id="ListEnterprise">
+                @foreach(var item in ViewBag.ListEnterprise)
+                {
+                    <option value="@item.EnterpriseName" data-id="@item.EnterpriseID" />
+                }
+                </datalist>
+        </div>
+        <div class="container-input">
+            <span>Ngày sinh : </span><br />
+            <select id="born-day" style="">
+                @for (int i = 1; i <= 31; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select id="born-month">
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select id="born-year" style="width: 100px;">
+                @for (int i = 2005; i >= 1950; i--)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="container-input">
+            <span>Nhập mã công ty :</span>
+            <input type="text" value="" id="CodeEnterprise" placeholder="324546" />
+        </div>
+
+        <div class="container-input">
+            <span>Số điện thoại : </span><br />
+            <input type="text" value="" id="mobile" placeholder="0123456789" />
+        </div>
+        <div class="container-input">
+            <span>Chức vụ, vị trí : </span><br />
+            <select id="position" style="margin-left: 10%; width: 250px;">
+                @foreach (var item in ViewBag.ListPositionEmployee)
+                {
+                    <option value="@item.ID">@item.NamePosition</option>
+                }
+            </select>
+        </div>
+        <div class="container-input">
+            <span>Giới tính : </span><br />
+            <input type="radio" name="gender" value="male" checked /> Male
+            <input type="radio" name="gender" value="female" /> Female
+        </div>
+
+
+        <button>SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="finish-box">
+        <div class="title">Đăng ký thành công</div>
+        <div id="text">
+            <div style="color: red; text-align: center; font-size: 14px; margin: 20px">Chúc mừng bạn đã đăng ký thành công tài khoản</div> 
+            Trang web sẽ chuyển hướng đến trang chủ sau vài giây nữa. <br />
+            Mong rằng bạn sẽ có những trải nghiệm thú vị và tìm được công việc phù hợp cùng với tên trang web.
+        </div>
+        <div id="hr-line"></div>
+    </div>
+    <script src="~/Assets/Client/Js/Register/RegisterForEmployee.js"></script>
+</body>
+</html>

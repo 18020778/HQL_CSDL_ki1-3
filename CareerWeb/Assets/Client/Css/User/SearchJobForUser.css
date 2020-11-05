@@ -1,0 +1,314 @@
+﻿﻿#bannerHeader {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-top: 100px;
+}
+
+#letterHeader {
+    float: left;
+    width: 100%;
+    padding-top: 50px;
+    color: rgb(0, 25, 252);
+    height: 200px;
+    background-image: url('../../Img/User/ImageSearchJob/subheader-bg.jpg');
+    background-size: cover;
+    z-index: 0;
+    margin-top: 75px;
+}
+
+#pathHeader {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: black;
+    color: white;
+    height: 20%;
+    font-size: 1.3em;
+}
+
+#homeLetter:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#criteriaSelected {
+    border: 1px solid #d1d0cf;
+    box-shadow: 0 0 5px #d1d0cf;
+    float: left;
+    margin-left: calc(50% - 589px);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 1178px;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jobBrowser {
+    float: left;
+    width: 25%;
+    height: 2em;
+    margin-left: 3%;
+}
+
+#findIcon {
+    background-image: url('../../Img/User/ImageSearchJob/blue-search-icon.png');
+    background-size: cover;
+    float: left;
+    width: 3em;
+    height: 3em;
+    margin-left: 3%;
+}
+
+    #findIcon :hover {
+        cursor: pointer;
+    }
+
+#clearAll {
+    color: orangered;
+    font-size: 1.2em;
+    position: relative;
+    float: right;
+    margin-right: calc(50% - 540px);
+}
+
+    #clearAll:hover {
+        color: #034efc;
+        cursor: pointer;
+    }
+
+@media screen and (max-width : 1160px) {
+    #criteriaSelected {
+        width: 95%;
+        margin-left: 2.5%;
+    }
+
+    #clearAll {
+        margin-right: 2.5%;
+    }
+}
+
+@media screen and (max-width : 980px) {
+    .jobBrowser {
+        width: 90%;
+        margin-bottom: 20px;
+        margin-left: 5%;
+    }
+
+    #findIcon {
+        float: right;
+        margin-right: 5%;
+    }
+}
+
+#colJobLeftMenu {
+    max-width: 18%;
+    width: auto;
+    float: left;
+    margin-left: 6.5%;
+}
+
+.borderColJobMenu {
+    border: 1px solid #d1d0cf;
+    box-shadow: 0 0 5px #d1d0cf;
+    float: left;
+    position: relative;
+    width: 100%;
+    padding-left: 1em;
+    padding-bottom: 0em;
+    margin-top: 10px;
+}
+
+#loctionCheckbox {
+    font-size: 1.3em;
+}
+
+.colClick {
+    padding: 5px 0px 5px 10px;
+    font-size: 20px;
+}
+
+.colClick:hover {
+    cursor: pointer;
+}
+
+.borderColJobMenu form {
+    display: none;
+}
+
+.textOverflowLine {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+}
+
+#colJobRightMenu {
+    float: left;
+    width: 63%;
+    margin-left: 6%;
+}
+
+#showResult {
+    position: absolute;
+    float: left;
+    font-size: 1.2em;
+    margin-top: 2%;
+    font-weight: bold;
+    margin-bottom: 3em;
+}
+
+.jobContainer {
+    border: 1px solid gray;
+    width: 100%;
+    background-color: #ebedeb;
+    position: relative;
+    height: 9em;
+    margin-top: 2em;
+    display: flex;
+}
+
+    .jobContainer:hover {
+        cursor: pointer;
+        border: 1px solid #f07e1d;
+    }
+
+.logo {
+    width: 10em;
+}
+img {
+    position: relative;
+    background-size: cover;
+    margin: 0 0;
+    height: 8.9em;
+    width: 10em;
+}
+
+.jobName {
+    float: left;
+    position: absolute;
+    color: orangered;
+    font-size: 30px;
+}
+
+    .jobName .textOverflowLine {
+        -webkit-line-clamp: 2;
+    }
+
+.companyName {
+    position: absolute;
+    margin-top: 45px;
+}
+
+    .companyName .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
+
+.address {
+    width: 40%;
+    margin-top:75px;
+}
+
+    .address .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
+
+.salary {
+    float: left;
+    margin-left: 27vw;
+    width: 40%;
+    margin-top: -24px;
+}
+
+    .salary .textOverflowLine {
+        -webkit-line-clamp: 1;
+    }
+
+.deadline {
+    position: absolute;
+    margin-top: 0.5em;
+}
+
+.reward {
+    float: left;
+    margin-left: 27vw;
+    margin-top: 0.5em;
+}
+
+@media (max-width: 980px) {
+    #colJobLeftMenu {
+        display: none;
+    }
+
+    #colJobRightMenu {
+        margin-left: 2.5%;
+        width: 47%;
+        height: auto;
+    }
+
+        #colJobRightMenu b {
+            display: none;
+        }
+
+    .jobContainer {
+        height: auto;
+    }
+
+    .logo img {
+        height: 4em;
+        width: 6em;
+        margin: 0.5em;
+    }
+
+    .jobName {
+        position: absolute;
+        margin-left: 6.7em;
+        margin-top: -4em;
+        font-size: 1.1em;
+    }
+
+    .companyName {
+        margin-left: 7.3em;
+        margin-top: -2em;
+    }
+
+        .companyName .textOverflowLine {
+            -webkit-line-clamp: 2;
+        }
+
+    .address {
+        margin-left: 1em;
+        margin-top: 0em;
+        width: 100%;
+    }
+
+        .address .textOverflowLine {
+            -webkit-line-clamp: 1;
+        }
+
+    .salary {
+        position: absolute;
+        margin-left: 1em;
+        margin-top: 1em;
+        width: 100%;
+    }
+
+        .salary .textOverflowLine {
+            -webkit-line-clamp: 1;
+        }
+
+    .deadline {
+        position: absolute;
+        margin-left: 27vw;
+        margin-top: -1.1em;
+    }
+
+    .reward {
+        margin-left: 27vw;
+        margin-top: 1em;
+    }
+}

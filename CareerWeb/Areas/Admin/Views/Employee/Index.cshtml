@@ -1,0 +1,64 @@
+﻿@model List<Model.EF.Employee>
+@{
+    ViewBag.Title = "Employee Management";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header{ Employee Management}
+@section breadcrumb{
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li class="breadcrumb-item active">Employee Management</li>
+}
+
+<div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    List of Employees
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>EmployeeName</th>
+                    <th>PositionName</th>
+                    <th>BirthDay</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>EmployeeName</th>
+                    <th>PositionName</th>
+                    <th>BirthDay</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr id="row_@item.EmployeeID">
+                    <td>@item.EmployeeName</td>
+                    <td>@item.PositionName</td>
+                    <td>@item.BirthDay.ToString("dd/MM/yyyy")</td>
+                    <td>@item.Email</td>
+                    <td>@item.Mobile</td>
+                    <td>@Html.ActionLink("Detail", "DetailEmployee", new { id = item.EmployeeID })</td>
+                    <td>
+                        @Ajax.ActionLink("Delete", "DeleteEmployee", new { id = item.EmployeeID }, new AjaxOptions
+                    {
+                       Confirm = "Are you sure to delete?",
+                       OnComplete = "$('#row_" + @item.EmployeeID + "').remove()",
+                       HttpMethod = "Delete"
+                    })
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

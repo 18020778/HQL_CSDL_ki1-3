@@ -1,0 +1,190 @@
+﻿@model List<Model.EF.OfferJob>
+@using Model.Dao
+@{
+    ViewBag.Title = "UserHome";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+    var OfferJobDao = new OfferJobDao();
+    var OfferJobSkillDao = new OfferJobSkillDao();
+    var EnterpriseDao = new EnterpriseDao();
+    var SalaryDao = new SalaryDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/User/UserHome.css" rel="stylesheet" />
+}
+<div class="banner">
+
+
+    <div class="title">
+        Go further. Dream Bigger. Work better
+    </div>
+    <form>
+        <input type="text" name="jobBrowser" class="jobBrowser" style="height: 3em; margin-left: 7%;"
+               placeholder="Job Title, positon, skill...">
+    </form>
+    <form>
+        <input class="jobBrowser" minlength="2" style="height: 3em;" placeholder="All career" name="OfferMajor" list="OfferMajor" id="as" />
+        <datalist id="OfferMajor" style="height:5.1em">
+            @foreach (var item in ViewBag.ListJobMain)
+            {
+                <option value="@item.JobName" data-id="@item.JobID" />
+            }
+        </datalist>
+    </form>
+    <form>
+        <input list="ListArea" class="jobBrowser" style="height: 3em;"
+               placeholder="All state" id="bs">
+        <datalist id="ListArea">
+            @foreach (var item in ViewBag.ListArea)
+            {
+                <option value="@item.NameArea" data-id="@item.AreaId" />
+            }
+
+        </datalist>
+
+    </form>
+    <div>
+        <input type="submit" id="findIcon" class="submit-box" value="Tìm kiếm" onclick="search()" />
+    </div>
+    <div class="criterialSelected">
+        <form action="">
+            <input list="Salary" class="select-box select-box1" placeholder="Mức lương" id="cs" />
+            <datalist id="Salary">
+                @foreach (var item in ViewBag.ListSalary)
+                {
+                    <option value="@item.Amount" data-id="@item.ID" />
+                }
+            </datalist>
+            <input list="Position" class="select-box select-box2" placeholder="Trình độ nghề nghiệp" id="ds" />
+            <datalist id="Position">
+                @foreach (var item in ViewBag.ListPositionEmployee)
+                {
+                    <option value="@item.NamePosition" data-id="@item.ID" />
+
+                }
+            </datalist>
+            <input list="Experience" class="select-box select-box3" placeholder="Kinh nghiệm" id="es" />
+            <datalist id="Experience">
+                @foreach (var item in ViewBag.ListExperience)
+                {
+                    <option value=" @item.Time" data-id="@item.ID" />
+
+                }
+            </datalist>
+
+            <input list="Lever" class="select-box select-box4" placeholder="Trình độ" id="fs" />
+            <datalist id="Lever">
+
+                @foreach (var item in ViewBag.ListLevelLearning)
+                {
+                    <option value="@item.NameLevel" data-id="@item.ID" />
+
+                }
+            </datalist>
+            <button id="clearAll" style="font-weight:bold; background-color: chocolate" class="select-box select-box4" onclick="reload();">Xóa điều kiện tìm</button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="serif">
+            CareerWeb là dịch vụ tuyển dụng
+            <a class="link" href="SearchJobForUser?"> tìm việc làm</a>,
+            <a class="link" href=""> đăng tin tuyển dụng</a>
+            và <a class="link" href="~/Employee/SearchCandidate?"> tìm hồ sơ xin việc</a> theo khu vực, lĩnh vực, kỹ năng và nhiều điều kiện khác
+        </div>
+    </div>
+    </form>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="home-box home-box1">
+    <a class="examp" title="Việc làm IT/ Phần mềm/ CNTT" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img style="margin-top:7%" loading="lazy" alt="Việc làm IT/ Phần mềm/ CNTT" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-5.png">
+               </p>
+        <h5 style="color: red">IT/ PHẦN MỀM/ CNTT</h5>
+
+        </a>
+</div>
+<div class="home-box home-box2">
+    <a class="examp" title="Việc làm Bán hàng/ Kinh doanh" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img style="margin-top:7%" loading="lazy" alt="Việc làm Bán hàng/ Kinh doanh" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-6.png">
+               </p>
+        <h5 style="color: red">BÁN HÀNG/ KINH DOANH</h5 >
+
+        </a>
+</div>
+<div class="home-box home-box3">
+    <a class="examp" title="Việc làm Chuyên Môn" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img style="margin-top:7%" loading="lazy" alt="Việc làm Chuyên Môn" onerror="this.src='public/images/default.png'; "
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-8.png">
+               </p>
+        <h5 style="color: red"> CHUYÊN MÔN</h5>
+
+        </a>
+</div>
+<div class="home-box home-box4">
+    <a class="examp" title="Việc làm Lao Động Phổ Thông" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img style="margin-top:7%" loading="lazy" alt="Việc làm Lao Động Phổ Thông" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-2.png">
+               </p>
+        <h5 style="color: red">LAO ĐỘNG PHỔ THÔNG</h5>
+
+    </a>
+</div>
+<div class="home-box home-box5">
+    <a class="examp" title="Việc làm Kĩ Thuật" href="https://MyCV.vn/viec-lam/danh-muc-it-phan-mem-cntt-1.html" ;
+           <p class="home-icon">
+                  <img style="margin-top:7%" loading="lazy" alt="Việc làm Kĩ Thuật" onerror="this.src='public/images/default.png';"
+                       src="https://viecoi.cdn.vccloud.vn/public/images/category/categories-icon-9.png">
+               </p>
+        <h5 style="color: red; ma">KĨ THUẬT</h5>
+
+        </a>
+</div>
+<div>
+    <b class="button button1"><i>Việc làm mới</i></b>
+
+</div>
+
+
+<div style="height:auto; width:62%;position: relative; margin-left: 14%; margin-bottom:5%; margin-top: -1%">
+    <vr></vr>
+    @foreach (var item in ViewBag.ListOffer)
+    {
+
+        var linkImage = item.OfferImage;
+
+        <div class="job-box">
+            <img class="box-img" src="@linkImage" ; />
+            <div style="width: 50%; margin-left:0; margin-top: 2%; font-size:13px; text-align:left; padding-left: 6%;float: left">
+                <a href="/OfferDetail/@item.OfferID" style="text-decoration:none"><div style="color:red; font-size: 15px">@item.OfferName </div></a><br />
+                <b class="fa fa-building-o"></b><b> Công ty: </b> <a>@(EnterpriseDao.EnterpriseName(item.EnterpriseID))</a><br /><br />
+                <b class="fa fa-map-pin"></b> <b>Nơi làm việc:</b> <a>@item.JobAddress</a><br /><br />
+                <b class="fa fa-calendar-o"></b> <b>Hạn nộp: </b> <a>@item.OfferLimitDate</a>
+            </div>
+
+
+            <div style="width: 50%; margin-left:50%; margin-top: 5%; font-size:13px; text-align:left; padding-left: 6%;">
+                <b class="fa fa-dollar"></b> <b>Lương: </b> <a> @(SalaryDao.AmountSalary(item.OfferSalary)) USD</a><br /><br />
+                <b class="fa fa-gift"></b> <b>Thưởng </b> <a>@(item.Bonus != null ? item.Bonus : "0 USD")</a><br />
+
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@section jsInsert{
+    <script src="~/Assets/Client/Js/User/UserHome.js"></script>
+
+}

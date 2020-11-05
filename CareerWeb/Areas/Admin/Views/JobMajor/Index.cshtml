@@ -1,0 +1,45 @@
+﻿@model List<Model.EF.JobMajor>
+@{
+    ViewBag.Title = "JobMajor";
+    Layout = "~/Areas/Admin/Views/Shared/Layout.cshtml";
+}
+@section header{ JobMajor}
+@section breadcrumb{
+    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+    <li class="breadcrumb-item active">Job Management</li>
+}
+
+<div class="card-header">
+    <i class="fas fa-table mr-1"></i>
+    Danh sách các ngành nghề
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="50%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>JobName</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>JobName</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    if(item.JobIDParent == null)
+                    { 
+                    <tr>
+                        <td>@item.JobName</td>
+                        <td><a href="#">Delete</a></td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterForUser</title>
+    <link href="~/Assets/Client/Css/Register/RegisterForUser.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id="choose-box-first">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <span>Tài khoản : </span><br />
+        <input type="text" placeholder="abcd@gmail.com" id="email" /><br />
+        <div id="alert-error-email" class="alert-error" style="top: 105px;">Nhập định dạng email sai</div>
+        <span>Mật khẩu : </span><br />
+        <input type="password" placeholder="Ít nhất 8 ký tự" id="password" /><br />
+        <div id="alert-error-pass" class="alert-error" style="top: 190px;">Nhập mật khẩu quá ít ký tự</div>
+        <span>Nhập lại mật khẩu : </span><br />
+        <input type="password" id="retype" /><br />
+        <div id="alert-error-retype" class="alert-error" style="top: 275px;">Mật khẩu không trùng khớp</div>
+        <button id="submit-first">SUBMIT</button><br />
+        <span id="title-vertify">Nhập mã xác nhận chúng tôi đã gửi đến email của bạn : </span><br />
+        <input type="text" id="codeVertify" placeholder="Nhập 6 chữ số trong mã code" />
+        <button id="submit-second">SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="choose-box-second">
+        <div class="title">NHẬP THÔNG TIN</div>
+        <br />
+        <div class="container-input">
+            <span>Họ và tên : </span><br />
+            <input type="text" value="" id="fullName" />
+        </div>
+        <div class="container-input">
+            <span>Ngày sinh : </span><br />
+            <select id="born-day" style="margin-left: 10%;">
+                @for (int i = 1; i <= 31; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select id="born-month">
+                @for (int i = 1; i <= 12; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+            <select id="born-year" style="width: 100px;">
+                @for (int i = 2005; i >= 1960; i--)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="container-input">
+            <span>Số điện thoại : </span><br />
+            <input type="text" value="" id="mobile" placeholder="VD : 0123456789" />
+        </div>
+        <div class="container-input">
+            <span>Tỉnh thành : </span><br />
+            <select id="area" style="margin-left: 10%; width: 250px;">
+            </select>
+        </div>
+        <div class="container-input">
+            <span>Giới tính : </span><br />
+            <input type="radio" name="gender" value="male" checked /> Male
+            <input type="radio" name="gender" value="female" /> Female
+        </div>
+        <div class="container-input">
+            <span>Tình trạng học vấn : </span><br />
+            <input type="radio" name="atSchool" value="in" checked /> Sinh viên
+            <input type="radio" name="atSchool" value="out" /> Ra trường
+        </div>
+        <div id="container-choose-major">
+            <div class="hr-title"></div>
+            <div id="major-title">Chuyên ngành, ngành nghề tham gia tuyển dụng</div>
+            <div class="hr-title"></div>
+            <input type="text" placeholder="Nhập tên ngành nghề..." id="searchMajor" value="" />
+            <div id="container-suggest">
+            </div>
+            <div id="container-option">
+            </div>
+        </div>
+        <button>SUBMIT</button>
+        <img src="~/Assets/Client/Img/Common/gifLoad.gif" class="cover-load" />
+    </div>
+    <div id="finish-box">
+        <div class="title">Đăng ký thành công</div>
+        <div id="text">
+            Bạn đã đăng ký thành công tài khoản và hoàn thành những thông tin cơ bản của mình.
+            Trang web sẽ chuyển hướng đến trang chủ sau vài giây nữa, mong rằng bạn sẽ có những
+            trải nghiệm thú vị và tìm được công việc phù hợp cùng với tên trang web.
+        </div>
+        <a href="/User/UserHome"><button style="text-align: center">Tiếp tục</button></a>
+        <div id="hr-line"></div>
+    </div>
+    <script src="~/Assets/Client/Js/Register/RegisterForUser.js"></script>
+</body>
+</html>

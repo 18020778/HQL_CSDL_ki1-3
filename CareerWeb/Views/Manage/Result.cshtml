@@ -1,0 +1,47 @@
+﻿@model Model.EF.WorkInvitation
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/LayoutForUser.cshtml";
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Manage/Result.css" rel="stylesheet" />
+}
+
+<div id="main">
+    <div id="mainBody">
+        <vr></vr>
+        <div id="header"><b>TIẾN TRÌNH NỘP HỒ SƠ</b></div>
+        <div id="stages">
+            <div class="stage" style="left: 0px;"><br><b>1 - Nộp Đơn</b></div>
+            <div class="triangleStageWhite" style="left: 256px; "></div>
+            <div class="triangleStageGray" style="left: 254px; "></div>
+            <div class="stage" style="left: 255px; ">
+                <br><b>
+                    2 - Phỏng Vấn
+                </b>
+            </div>
+            <div class="triangleStageWhite" style="left: 505px;"></div>
+            <div class="triangleStageGray" style="left: 503px;  "></div>
+            <div class="stage" style="left: 506px;"><br><b>3 - Mời Làm</b></div>
+            <div class="triangleStageWhite" style="left: 762px;"></div>
+            <div class="triangleStageGray" style="left: 759px;"></div>
+            <div class="stage" style="left: 764px; background-color: #f07e1d; color: white;">
+                <br><b>4 - Kết Quả</b>
+            </div>
+
+            <div class="triangleStageGray" style="left: 1018px;  border-left-color: #f07e1d;"></div>
+        </div>
+        <div id="status"><i class="	fas fa-check"></i> <b> Tuyển dụng hoàn tất. </b></div>
+        <div id="content">
+            <div class="line"></div>
+            <div id="offername"><i class="far fa-money-bill-alt"></i><b>Vị trí:</b> @ViewBag.Offer.OfferName</div>
+            <div id="startDate"><i class="far fa-calendar"></i><b> Ngày bắt đầu làm việc:</b> @Model.StartDay</div>
+            <div id="salary"><i class="far fa-money-bill-alt"></i><b>Mức lương:</b> @Model.Salary</div>
+            <div id="address"><i class="far fa-money-bill-alt"></i><b>Địa chỉ:</b> @Model.Address</div>
+        </div>
+    </div>
+    <div id="offer" stt="@Model.OfferID"></div>
+</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Manage/Result.js"></script>
+}

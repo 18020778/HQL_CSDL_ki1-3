@@ -1,0 +1,266 @@
+﻿main{
+    width: 100%;
+    height: auto;
+    float: left;
+    background-color: rgba(0,0,0,0.05);
+}
+#box-contain, #box-create {
+    margin-top: 30px;
+    background-color: white;
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    padding-bottom: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+}
+/*#box-create{
+    display: none;
+}*/
+#box-contain #title-site{
+    width: 80%;
+    border-left: 3px solid orangered;
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+#box-contain #introduce-step{
+    float: left;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+#introduce-step #contain-text{
+    border: 2px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    float: left; 
+    width: 180px;
+    height: auto;
+    font-size: 11pt;
+    text-align: center;
+    padding: 15px 25px 15px 25px;
+    margin-left: 12%;
+}
+#introduce-step .text-arrow {
+    float: left;
+    margin-top: 20px;
+}
+#introduce-step .arrow-step{
+    float: left;
+    width: 50px;
+}
+#introduce-step .each-step{
+    float: left;
+    width: 160px;
+    margin-top: -40px;
+    margin-left: 30px;
+    text-align: center;
+}
+#introduce-step .each-step .step-img{
+    width: 130px;
+    margin-bottom: 5px;
+}
+#introduce-step .each-step .step-text{
+    width: 100%;
+    padding: 6px 14px 6px 14px;
+    font-size: 10pt;
+    background-color: #43b8c9;
+    color: white;
+}
+#box-contain #contain-button{
+    width: calc(100% - 24px);
+    margin-left: 12px;
+    height: auto;
+    float: left;
+    border-bottom: 2px solid orangered;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+#box-contain #contain-button #title-list{
+    transform: skew(-25deg, 0);
+    background-color: orangered;
+    float: left;
+    color: white;
+    font-size: 10pt;
+    padding: 3px 12px 3px 12px;
+    margin-left: 5px;
+}
+#box-contain #contain-button #button-new{
+    box-shadow: 0 5px 0 #4ac97d;
+    float: right;
+    padding: 3px 8px 3px 8px;
+    background-color: #75d69c;
+    color: white;
+    font-size : 10pt;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color, box-shadow 0.4s;
+}
+#box-contain #contain-button #button-new:hover{
+    background-color:#f7ba4d;
+    box-shadow: 0 5px 0 #f07e1d;
+}
+#contain-list{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+}
+#contain-list .each-article{
+    float: left;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+#contain-list .each-article:hover{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+.each-article .contain-left{
+    float: left;
+    width: 25%;
+}
+.each-article .contain-left img{
+    width: 90%;
+    height: 110px;
+    margin-left: 5%;
+    margin-top: 15px;
+}
+.each-article .contain-mid{
+    width: 60%;
+    float: left;
+}
+.each-article .contain-mid .title-article{
+    font-weight: 600;
+    float: left;
+    margin-top: 10px;   
+    width: 100%;
+}
+.each-article .contain-mid .category{
+    float: left;
+    width: 100%;
+    font-size: 11pt;
+}
+.each-article .contain-mid .date{
+    float: left;
+    width: 100%;
+    font-size: 11pt;
+}
+.each-article .contain-mid .status{
+    float: left;
+    width: 100%;
+    font-size: 11pt;
+}
+.each-article .contain-mid .view{
+    float: left;
+    font-weight: 600;
+    font-size: 11pt;
+}
+.each-article .contain-right{
+    float: left;
+    width: 15%;
+}
+.each-article .contain-right .edit{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 30px;
+    text-align: center;
+    background-color: #548ce3;
+    color: white;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.each-article .contain-right .edit:hover{
+    background-color: #5e9ff2;
+}
+.each-article .contain-right .delete{
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10px;
+    text-align: center;
+    background-color:#b9bdba;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.each-article .contain-right .delete:hover{
+    background-color: #d7d9db;
+}
+#box-create .each-part{
+    width: 84%;
+    margin-left: 8%;
+    float: left;
+    margin-top: 20px;
+}
+#box-create .each-part-small{
+    width: 38%;
+    margin-left: 8%;
+    float: left;
+    margin-top: 20px;
+}
+#box-create .each-part label, #box-create .each-part-small label{
+    float: left;
+    width: 100%;
+    font-weight: 600;
+}
+#box-create label span{
+    color: red;
+}
+#box-create .each-part input[type='text']{
+    float: left;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.4);
+    height: 35px;
+    border-radius: 5px;
+}
+#box-create .each-part-small select{
+    float: left;
+    width: 70%;
+    height: 30px;
+}
+#box-create .each-part #input-description{
+    width: 100%;
+    height: 100px;
+}
+#box-create #box-footer{
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+#box-create #box-footer #both-input{
+    width: 150px;
+    height: 30px;
+    float: left;
+    margin-left: calc(50% - 165px);
+    background-color: #49a4eb;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 14pt;
+    cursor: pointer;
+}
+#box-create #box-footer #cancel{
+     width: 150px;
+    height: 30px;
+    float: left;
+    margin-left: 30px;
+    background-color: #aeb2b5;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 14pt;
+    cursor: pointer;
+}

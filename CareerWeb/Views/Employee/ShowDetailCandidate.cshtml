@@ -1,0 +1,120 @@
+﻿@model List<Model.Models.ShowInfoCandidate>
+@using Model.Dao
+@{
+    ViewBag.Title = "ShowDetailCandidate";
+    Layout = "~/Views/Shared/LayoutForEnterprise.cshtml";
+    var PositionDao = new PositionEmployeeDao();
+    var LanguageDao = new LanguageDao();
+}
+@section cssInsert{
+    <link href="~/Assets/Client/Css/Employee/ShowDetailCandidate.css" rel="stylesheet" />
+}
+<div id="colLeftMenu">
+    <div id="tableOfContents">
+        <div>
+            <div class="item" id="i1"><i class="fas fa-caret-right"></i>THÔNG TIN LIÊN HỆ</div>
+            <div class="item" id="i2"><i class="fas fa-caret-right"></i>THÔNG TIN CHUNG</div>
+            <div class="item" id="i3"><i class="fas fa-caret-right"></i>FILE CV</div>
+            <div class="item" id="i4"><i class="fas fa-caret-right"></i>TRÌNH ĐỘ HỌC VẤN</div>
+            <div class="item" id="i5"><i class="fas fa-caret-right"></i>KINH NGHIỆM LÀM VIỆC</div>
+            <div class="item" id="i6"><i class="fas fa-caret-right"></i>NGOẠI NGỮ</div>
+            <div class="item" id="i7"><i class="fas fa-caret-right"></i>KỸ NĂNG</div>
+            <div class="item" id="i8"><i class="fas fa-caret-right"></i>VIDEO GIỚI THIỆU</div>
+        </div>
+
+    </div>
+</div>
+<div id="colRightMenu">
+
+    @if (Model != null && Model.Count != 0)
+    {
+        foreach (var item in Model)
+        {
+            <div id="contactInfo" class="contentJob">
+                <img src="@item.UserImage">
+                <div id="nameApplicant">@item.UserName.ToUpper()</div>
+                <vr></vr>
+                <div id="positionApply"><i class="fa fa-suitcase"></i> @item.JobName</div>
+                <br>
+                <div id="oldApplicant"><i class="far fa-calendar"></i> Ngày sinh: @item.UserBirthDay</div>
+                <br>
+                <div id="email"><i class="fas fa-envelope"></i> Email: @item.UserEmail</div>
+                <div id="hotline"><i class="fas fa-phone-square-alt"></i> Số điện thoại: @item.UserMobile</div>
+                <div id="address">
+                    <i class="fa fa-map-marker"></i> Địa chỉ: @item.UserAddress
+                </div>
+            </div>
+            <div class="contentJob" id="generalInfo">
+                <vr></vr>
+                <div class="headerNews">THÔNG TIN CHUNG</div>
+                <br><br>
+                <span></span>
+                <span><b>Lĩnh vực: </b> @ViewBag.ListFullJobName</span>
+                <span> <b>Lương mong muốn: </b> @(item.Amount != null ? item.Amount : "Thỏa thuận") </span>
+                <span> <b>Vị trí: </b> @item.NamePosition</span>
+                <span> <b>Khu vực: </b> @item.UserArea</span>
+            </div>
+            <div class="contentJob" id="academicLevel">
+                <vr></vr>
+                <div class="headerNews">TRÌNH ĐỘ HỌC VẤN</div>
+                <br><br>
+                <span></span>
+                <span> <b>Trình độ: </b> @item.StudyLevel</span>
+                <span> <b>Ngành: </b> @item.JobName</span>
+                <span> <b>Năm học: </b> @item.TimeStart - @item.TimeEnd</span>
+                <span> <b>Tên trường: </b> @item.SchoolName</span>
+            </div>
+        }
+    }
+
+
+    <div class="contentJob" id="experience">
+        <vr></vr>
+        <div class="headerNews">KINH NGHIỆM LÀM VIỆC</div>
+        <br><br><br>
+        @foreach (var item in ViewBag.ListExperience)
+        {
+            <div class="onejob">
+                <div id="time"><i class="far fa-calendar-alt" style="font-size: 15px;"></i> Từ @item.StartTime đến @item.EndTime</div>
+                <span><b>Việc làm: </b>@item.Description</span>
+                <span><b>Tên công ty: </b>@item.EnterpriseName</span>
+                <span><b>Cấp bậc: </b>@(PositionDao.NamePosition(item.PositionID))</span>
+            </div>
+        }
+
+    </div>
+    
+    <div class="contentJob" id="englishLevel">
+        <vr></vr>
+        @foreach (var item in ViewBag.ListLanguage)
+        {
+
+            <div class="headerNews">TRÌNH ĐỘ NGOẠI NGỮ</div>
+            <br><br>
+            <span></span>
+            <span>@(LanguageDao.NameLanguage(item.UserID)) : @item.Description</span>
+        }
+    </div>
+    <div class="contentJob" id="skill">
+        <vr></vr>
+        <div class="headerNews">KỸ NĂNG</div>
+        <br><br>
+        <ul>
+
+        </ul>
+    </div>
+    <div class="contentJob" id="video">
+        <vr></vr>
+        <div class="headerNews">VIDEO TỰ GIỚI THIỆU</div>
+        <br><br>
+        <span></span>
+        
+
+    </div>
+</div>
+<div class="button" id="applyJob">XEM CV</div>
+<div class="button" id="saveJob">LƯU CV</div>
+@section jsInsert{
+    <script src="~/Assets/Client/Js/Employee/ShowDetailCandidate.js"></script>
+}
+
