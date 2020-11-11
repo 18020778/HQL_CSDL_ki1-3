@@ -77,7 +77,7 @@ namespace CareerWeb.Controllers
                 foreach (var item in model.NewJobImp)
                 {
                     if (!ret) break;
-                    var newJob = new JobMajor();
+                    var newJob = new Model.EF.JobMajor();
                     newJob.JobName = item;
                     newJob.Status = false;
                     var checkJob = new JobMajorDao().Insert(newJob);
@@ -98,7 +98,7 @@ namespace CareerWeb.Controllers
                 foreach (var item in model.NewJobSub)
                 {
                     if (!ret) break;
-                    var newJob = new JobMajor();
+                    var newJob = new Model.EF.JobMajor();
                     newJob.JobName = item;
                     newJob.Status = false;
                     var checkJob = new JobMajorDao().Insert(newJob);
@@ -129,7 +129,7 @@ namespace CareerWeb.Controllers
         [HttpPost]
         public JsonResult ImageUpload(FileUploadModel model)
         {
-            var file = model.ImageFile;
+            var file = model.UploadFile;
             if (file != null)
             {
 

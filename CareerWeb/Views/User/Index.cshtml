@@ -613,17 +613,32 @@
             </div>
         </div>
         <div id="video" class="box-infor">
-            @using (Html.BeginForm("Index", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            <div class="first-title">
+                VIDEO GIỚI THIỆU BẢN THÂN
+                <div class="add-more" add-for="video"><i class="fa fa-plus-square-o"></i></div>
+            </div>
+            @if (Model.VideoProfile != null)
             {
-                <div class="first-title">
-                    VIDEO GIỚI THIỆU BẢN THÂN
-                    <div class="add-more" add-for="video"><i class="fa fa-plus-square-o"></i></div>
-                </div>
-                <div class="container-infor">
-                    @Html.TextBox("videoFile", "", new { type = "file" }) <br/>
-                    <input type="submit" value="Upload Video File" />
-                </div>
+                <video controls id="display-video">
+                    <source src="@Model.VideoProfile" type="video/mp4" />
+                </video>
+                <input type="file" id="video-upload" />
+                <span>Thay clip</span>
+                <br />
+                <button id="save-video">
+                    Lưu video
+                </button>
             }
+            else
+            {
+                <input type="file" id="video-upload" />
+                <span>Đăng clip</span>
+                <br />
+                <button id="save-video">
+                    Lưu video
+                </button>
+            }
+
 
         </div>
     </div>

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Model.Dao
 {
@@ -95,7 +96,7 @@ namespace Model.Dao
                 return false;
             }
         }
-        public bool UploadImage(String userId, string fileName)
+        public bool UploadImage(string userId, string fileName)
         {
             try
             {
@@ -109,139 +110,173 @@ namespace Model.Dao
                 return false;
             }
         }
-        
-        public List<CandidateInfo> ListUserFit(String name, int areaID, int JobId)
+        public bool UploadVideo(string userId, string fileName)
         {
-            var listUserMajors = new UserMajorDao().ListUserMajor();
-            var listJobs = new JobMajorDao().ListJobMain();
-
-            var result = (from User in db.Users.ToList()
-                          join UserMajor in listUserMajors on User.UserId equals UserMajor.UserID
-                          where (areaID == 0 || User.UserArea == areaID)
-                          where (JobId == 0 || UserMajor.MajorID == JobId)
-                          where (name == "0" || User.UserName.Contains(name))
-                          select new
-                          {
-                              UserId = User.UserId,
-                              UserName = User.UserName,
-                              //UserImage = User.UserImage,
-                              //UserExperience = User.UserExperience,
-                              //UserSalary = User.GPA,
-                              UserArea = db.Areas.Find(User.UserArea).NameArea,
-                              UserMajorName = (from UserMajor in listUserMajors
-                                               join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
-
-                                               where (UserMajor.UserID == User.UserId)
-
-                                               select JobMajor.JobName).ToList()
-
-                          }).AsEnumerable().Select(x => new CandidateInfo()
-                          {
-                              UserId = x.UserId,
-                              UserName = x.UserName,
-                              //UserImage = x.UserImage,
-                              //UserExperience = x.UserExperience,
-                              //UserSalary = (float)x.UserSalary,
-                              UserArea = x.UserArea,
-                              UserMajorName = x.UserMajorName
-                          });
-
-            List<CandidateInfo> finalResult = result.ToList();
-            int n = finalResult.Count;
-            if (n == 0 || n == 1) return finalResult;
-
-            List<CandidateInfo> finalResult2 = new List<CandidateInfo>();
-
-            for (int i = 0; i < n; i++)
+            try
             {
-                bool check = true;
-                for (int j = 0; j < finalResult2.Count; j++)
-                {
-                    if (finalResult[i].UserId == finalResult2[j].UserId)
-                    {
-                        check = false;
-                        break;
-                    }
-                }
-                if (check == true)
-                {
-                    finalResult2.Add(finalResult[i]);
-                }
-
-
+                var user = db.Users.Find(userId);
+                user.VideoProfile = fileName;
+                db.SaveChanges();
+                return true;
             }
-            return finalResult2;
-
-
+            catch(Exception e)
+            {
+                return false;
+            }
         }
-        public List<CandidateInfo> ListUserFit(string KeyWord, int AreaID, int JobID, int experienceID, int salaryID, int position, int levelLearning)
+
+        //public List<CandidateInfo> ListUserFit(String name, int areaID, int JobId)
+        //{
+        //    var listUserMajors = new UserMajorDao().ListUserMajor();
+        //    var listJobs = new JobMajorDao().ListJobMain();
+
+        //    var result = (from User in db.Users.ToList()
+        //                  join UserMajor in listUserMajors on User.UserId equals UserMajor.UserID
+        //                  where (areaID == 0 || User.UserArea == areaID)
+        //                  where (JobId == 0 || UserMajor.MajorID == JobId)
+        //                  where (name == "0" || User.UserName.Contains(name))
+        //                  select new
+        //                  {
+        //                      UserId = User.UserId,
+        //                      UserName = User.UserName,
+        //                      //UserImage = User.UserImage,
+        //                      //UserExperience = User.UserExperience,
+        //                      //UserSalary = User.GPA,
+        //                      UserArea = db.Areas.Find(User.UserArea).NameArea,
+        //                      UserMajorName = (from UserMajor in listUserMajors
+        //                                       join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
+
+        //                                       where (UserMajor.UserID == User.UserId)
+
+        //                                       select JobMajor.JobName).ToList()
+
+        //                  }).AsEnumerable().Select(x => new CandidateInfo()
+        //                  {
+        //                      UserId = x.UserId,
+        //                      UserName = x.UserName,
+        //                      //UserImage = x.UserImage,
+        //                      //UserExperience = x.UserExperience,
+        //                      //UserSalary = (float)x.UserSalary,
+        //                      UserArea = x.UserArea,
+        //                      UserMajorName = x.UserMajorName
+        //                  });
+
+        //    List<CandidateInfo> finalResult = result.ToList();
+        //    int n = finalResult.Count;
+        //    if (n == 0 || n == 1) return finalResult;
+
+        //    List<CandidateInfo> finalResult2 = new List<CandidateInfo>();
+
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        bool check = true;
+        //        for (int j = 0; j < finalResult2.Count; j++)
+        //        {
+        //            if (finalResult[i].UserId == finalResult2[j].UserId)
+        //            {
+        //                check = false;
+        //                break;
+        //            }
+        //        }
+        //        if (check == true)
+        //        {
+        //            finalResult2.Add(finalResult[i]);
+        //        }
+
+
+        //    }
+        //    return finalResult2;
+
+
+        //}
+        public List<CandidateInfo> ListUserFit(string KeyWord, int AreaID, int JobID, int experienceID, int salaryID, int positionID, int levelLearningID)
         {
-
-            var listUsers = ListUser();
-            var listUserMajors = new UserMajorDao().ListUserMajor();
-            var listJobs = new JobMajorDao().ListJobMain();
-            var listLanguage = new UserForeignLanguageDao().ReturnList();
-
-            var result = (from User in listUsers
-                          join UserMajor in listUserMajors on User.UserId equals UserMajor.UserID
-                          where (AreaID == 0 || User.UserArea == AreaID)
-                          && (JobID == 0 || UserMajor.MajorID == JobID)
-                          && (salaryID == 0 || User.Salary == salaryID)
-                          && (KeyWord == "" || User.UserName.Contains(KeyWord))
-                          select new
-                          {
-                              UserId = User.UserId,
-                              UserName = User.UserName,
-                              //UserImage = User.UserImage,
-                              //UserExperience = User.UserExperience,
-                              UserSalary = (User.Salary != null) ? User.Salary : 0,
-                              UserArea = db.Areas.Find(User.UserArea).NameArea,
-                              UserMajorName = (from UserMajor in listUserMajors
-                                               join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
-
-                                               where (UserMajor.UserID == User.UserId)
-
-                                               select JobMajor.JobName).ToList()
-
-                          }).AsEnumerable().Select(x => new CandidateInfo()
-                          {
-                              UserId = x.UserId,
-                              UserName = x.UserName,
-                              //UserImage = x.UserImage,
-                              //UserExperience = x.UserExperience,
-                              UserSalary = new SalaryDao().AmountSalary(x.UserSalary.Value),
-                              UserArea = x.UserArea,
-                              UserMajorName = x.UserMajorName
-                          });
-
-            List<CandidateInfo> finalResult = result.ToList();
-            int n = finalResult.Count;
-            if (n == 0 || n == 1) return finalResult;
-
-            List<CandidateInfo> finalResult2 = new List<CandidateInfo>();
-
-            for (int i = 0; i < n; i++)
+            try
             {
-                bool check = true;
-                for (int j = 0; j < finalResult2.Count; j++)
+                SqlParameter[] param = new SqlParameter[]
                 {
-                    if (finalResult[i].UserId == finalResult2[j].UserId)
-                    {
-                        check = false;
-                        break;
-                    }
-                }
-                if (check == true)
-                {
-                    finalResult2.Add(finalResult[i]);
-                }
-
-
+                    new SqlParameter("@name", KeyWord),
+                    new SqlParameter("@areaID", AreaID),
+                    new SqlParameter("@jobID", JobID),
+                    new SqlParameter("@experienceID", experienceID),
+                    new SqlParameter("@salaryID", salaryID),
+                    new SqlParameter("@positionID", positionID),
+                    new SqlParameter("@levelLearningID", levelLearningID)
+                };
+                var data = db.Database.SqlQuery<CandidateInfo>("sp_User_listUserFit @name,@areaID,@jobID,@experienceID,@salaryID,@positionID,@levelLearningID", param).ToList();
+                return data;
             }
-            return finalResult2;
-
-
+            catch (Exception e)
+            {
+                return null;
+            }
         }
+
+        //    var listUsers = ListUser();
+        //    var listUserMajors = new UserMajorDao().ListUserMajor();
+        //    var listJobs = new JobMajorDao().ListJobMain();
+        //    var listLanguage = new UserForeignLanguageDao().ReturnList();
+
+        //    var result = (from User in listUsers
+        //                  join UserMajor in listUserMajors on User.UserId equals UserMajor.UserID
+        //                  where (AreaID == 0 || User.UserArea == AreaID)
+        //                  && (JobID == 0 || UserMajor.MajorID == JobID)
+        //                  && (salaryID == 0 || User.Salary == salaryID)
+        //                  && (KeyWord == "" || User.UserName.Contains(KeyWord))
+        //                  select new
+        //                  {
+        //                      UserId = User.UserId,
+        //                      UserName = User.UserName,
+        //                      //UserImage = User.UserImage,
+        //                      //UserExperience = User.UserExperience,
+        //                      UserSalary = (User.Salary != null) ? User.Salary : 0,
+        //                      UserArea = db.Areas.Find(User.UserArea).NameArea,
+        //                      UserMajorName = (from UserMajor in listUserMajors
+        //                                       join JobMajor in listJobs on UserMajor.MajorID equals JobMajor.JobID
+
+        //                                       where (UserMajor.UserID == User.UserId)
+
+        //                                       select JobMajor.JobName).ToList()
+
+        //                  }).AsEnumerable().Select(x => new CandidateInfo()
+        //                  {
+        //                      UserId = x.UserId,
+        //                      UserName = x.UserName,
+        //                      //UserImage = x.UserImage,
+        //                      //UserExperience = x.UserExperience,
+        //                      UserSalary = new SalaryDao().AmountSalary(x.UserSalary.Value),
+        //                      UserArea = x.UserArea,
+        //                      UserMajorName = x.UserMajorName
+        //                  });
+
+        //    List<CandidateInfo> finalResult = result.ToList();
+        //    int n = finalResult.Count;
+        //    if (n == 0 || n == 1) return finalResult;
+
+        //    List<CandidateInfo> finalResult2 = new List<CandidateInfo>();
+
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        bool check = true;
+        //        for (int j = 0; j < finalResult2.Count; j++)
+        //        {
+        //            if (finalResult[i].UserId == finalResult2[j].UserId)
+        //            {
+        //                check = false;
+        //                break;
+        //            }
+        //        }
+        //        if (check == true)
+        //        {
+        //            finalResult2.Add(finalResult[i]);
+        //        }
+
+
+        //    }
+        //    return finalResult2;
+
+
+        //}
 
         public List<User> ListUser()
         {
@@ -280,7 +315,7 @@ namespace Model.Dao
                               Amount = db.Salaries.Find(user.Salary).Amount,
                               NamePosition = db.PositionEmployees.Find(user.PositionApply).NamePosition,
                               UserArea = db.Areas.Find(user.UserArea).NameArea,
-                              StudyLevel = db.LevelLearnings.Find(study.StudyLevel).NameLevel,
+                              StudyLevel = db.LevelLearnings.Find(user.LevelLearning).NameLevel,
                               SchoolName = study.SchoolName,
                               TimeStart = study.TimeStart,
                               TimeEnd = study.TimeEnd,

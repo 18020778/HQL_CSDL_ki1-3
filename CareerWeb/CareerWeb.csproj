@@ -108,6 +108,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -191,6 +192,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AddUserCertificateModel.cs" />
     <Compile Include="Models\FileUploadModel.cs" />
     <Compile Include="Models\FormOffer.cs" />
@@ -1381,6 +1383,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\EnterpriseArea\" />
     <Folder Include="Areas\Admin\Views\EnterpriseJob\" />
+    <Folder Include="Assets\Client\Img\User\UserVideo\" />
     <Folder Include="Assets\Client\Pdf-Cv\" />
     <Folder Include="Views\Home\" />
     <Folder Include="Views\OfferJob\" />

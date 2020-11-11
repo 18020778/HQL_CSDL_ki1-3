@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.EF
+namespace Model.Models
 {
     public class CandidateInfo
     {
-        public String UserId { get; set; }
+        public string UserId { get; set; }
 
-        public String UserName { get; set; }
+        public string UserName { get; set; }
 
-        public String UserImage { get; set; }
+        public string UserImage { get; set; }
 
-        public String UserExperience { get; set; }
+        public string UserExperience { get; set; }
 
-        public String UserSalary { get; set; }
+        public string UserSalary { get; set; }
 
-        public String UserArea { get; set; }
+        public string UserArea { get; set; }
 
-        public List<String> UserMajorName { get; set; }
+        public string UserMajorName { get; set; }
     }
 }

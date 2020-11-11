@@ -15,12 +15,13 @@
         var salary = ($("input[name='selectSalary']:checked").val() != null) ? $("input[name='selectSalary']:checked").val() : 0;
         var positionEmployee = ($("input[name='selectPosition']:checked").val() != null) ? $("input[name='selectPosition']:checked").val() : 0;
         var experience = ($("input[name='selectExperience']:checked").val() != null) ? $("input[name='selectExperience']:checked").val() : 0;
-        var sex = ($("input[name='selectGender']:checked").val() != null) ? $("input[name='selectGender']:checked").val() : 0;
+        var sex = ($("input[name='selectGender']:checked").val() != null) ? $("input[name='selectGender']:checked").val(): "";
         var levelLearning = ($("input[name='selectLevel']:checked").val() != null) ? $("input[name='selectLevel']:checked").val() : 0;
 
         var dbParam = "OfferName=" + jobBrowser + "&Area=" + listArea + "&OfferMajor=" + OfferMajor
             + "&OfferSalary=" + salary + "&PositionJobID=" + positionEmployee + "&Sex=" + sex + "&ExperienceRequest=" + experience
              + "&LearningLevelRequest=" + levelLearning;
+       
         window.location.href = "/SearchJobForUser?" + dbParam;
     })
     function checkName() {

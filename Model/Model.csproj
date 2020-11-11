@@ -113,6 +113,7 @@
     <Compile Include="Models\FormEnterpriseFull.cs" />
     <Compile Include="Models\InterviewInfo.cs" />
     <Compile Include="Models\ModifyUserForm.cs" />
+    <Compile Include="Models\OfferFilter.cs" />
     <Compile Include="Models\SavedCandidateInfo.cs" />
     <Compile Include="Models\ShowFullEnterprise.cs" />
     <Compile Include="Models\ShowFullJob.cs" />

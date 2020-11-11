@@ -43,22 +43,6 @@ namespace CareerWeb.Controllers
             ViewBag.ListArea = new AreaDao().ListArea();
 
             var ListEnterpriseContainer = new EnterpriseDao().ReturnFilterList(EName, EArea, ECareer, ESize).ToPagedList(page ?? 1, 5);
-            var nameJob = new List<string>();
-            foreach (var item in ListEnterpriseContainer)
-            {
-                var saveName = "";
-                for (var i = 0; i < item.listJobId.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        saveName += jobMajorDao.NameJob(item.listJobId[i]);
-                        continue;
-                    }
-                    saveName += ", " + jobMajorDao.NameJob(item.listJobId[i]);
-                }
-                nameJob.Add(saveName);
-            }
-            ViewBag.ListFullJobName = nameJob;
             return View(ListEnterpriseContainer);
         }
 
@@ -85,7 +69,7 @@ namespace CareerWeb.Controllers
             return View(ShowDetail);
         }
        
-        public ActionResult SearchJobForUser(int? page, string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0, string Sex = "0", int ExperienceRequest = 0, int LearningLevelRequest = 0, string OfferCreateDate = "")
+        public ActionResult SearchJobForUser(int? page, string OfferName = "", int Area = 0, int OfferMajor = 0, int OfferSalary = 0, int PositionJobID = 0,string sex = "",  int ExperienceRequest = 0, int LearningLevelRequest = 0)
         {
             ViewBag.ListJobMain = new JobMajorDao().ListJobMain();
             ViewBag.ListArea = new AreaDao().ListArea();
@@ -94,7 +78,7 @@ namespace CareerWeb.Controllers
             ViewBag.ListPositionEmployee = new PositionEmployeeDao().ReturnList();
             ViewBag.ListLevelLearning = new LevelLearningDao().ReturnList();
 
-            var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, Sex, ExperienceRequest, LearningLevelRequest).ToPagedList(page ?? 1, 2);
+            var ListJobContainer = new OfferJobDao().ReturnFilterList(OfferName, Area, OfferMajor, OfferSalary, PositionJobID, sex, ExperienceRequest, LearningLevelRequest).ToPagedList(page ?? 1, 5);
             return View(ListJobContainer);
         }
         public ActionResult Index()
@@ -125,36 +109,10 @@ namespace CareerWeb.Controllers
 
         }
 
-        //[HttpPost]
-        //public ActionResult IndexVideo(HttpPostedFileBase videoFile)
-        //{
-        //    if (videoFile != null)
-        //    {
-        //        string fileName = Path.GetFileName(videoFile.FileName);
-        //        if (videoFile.ContentLength < 104857600)
-        //        {
-        //            videoFile.SaveAs(Server.MapPath("/UserVideo/" + fileName));
-        //            string mainconn = ConfigurationManager.ConnectionStrings["CareerWeb"].ConnectionString;
-        //            SqlConnection sqlconn = new SqlConnection(mainconn);
-        //            string sqlquery = "insert into [dbo].[User] values(@VideoProfile)";
-        //            SqlCommand sqlcomn = new SqlCommand(sqlquery, sqlconn);
-        //            sqlconn.Open();
-        //            sqlcomn.Parameters.AddWithValue("@VideoProfile", "/UserVideo/" + fileName);
-        //            sqlcomn.ExecuteNonQuery();
-        //            sqlconn.Close();
-        //            ViewData["Message"] = "Sucess";
-        //        }
-        //    }
-        //    List<UploadClass> videoList = new List<UploadClass>();
-        //    string mainconn = ConfigurationManager.ConnectionStrings["CareeerWeb"].ConnectionString;
-        //    SqlConnection sqlconn = new SqlConnection(mainconn);
-        //    string sqlquery = "select  from ";
-        //    return RedirectToAction("Index");
-        //}
         [HttpPost]
         public JsonResult CreateAccountInfor(String userID, string email, string name, string mobile, string dateBirth, string sex, string atSchool, int area, List<int> listJob)
         {
-            var userInfor = new User();
+            var userInfor = new Model.EF.User();
             userInfor.UserId = userID;
             userInfor.UserName = name;
             userInfor.UserEmail = email;
@@ -206,22 +164,37 @@ namespace CareerWeb.Controllers
             });
         }
         [HttpPost]
-        public JsonResult ImageUpload(FileUploadModel model)
+        public JsonResult FileUpload(FileUploadModel model)
         {
-            var file = model.ImageFile;
+            var file = model.UploadFile;
             if (file != null)
             {
 
                 var fileName = Path.GetFileName(file.FileName);
                 var extention = Path.GetExtension(file.FileName);
                 var filenamewithoutextension = Path.GetFileNameWithoutExtension(file.FileName);
-                file.SaveAs(Server.MapPath("/Assets/Client/Img/User/ImageProfile/" + fileName));
-                var srcImage = "/Assets/Client/Img/User/ImageProfile/" + fileName;
                 var accID = int.Parse(User.Identity.Name);
-                var acc = new AccountDao().FindAccountById(accID);
-                var check = new UserDao().UploadImage(acc.UserId, srcImage);
+                var acc = new AccountDao().FindAccountById(accID); 
+                if(model.type == "image")
+                {
+                    file.SaveAs(Server.MapPath("/Assets/Client/Img/User/ImageProfile/" + fileName));
+                }
+                else
+                {
+                    file.SaveAs(Server.MapPath("/Assets/Client/Img/User/UserVideo/" + fileName));
+                }
+                var srcFile =  (model.type == "image") ? "/Assets/Client/Img/User/ImageProfile/" + fileName : "/Assets/Client/Img/User/UserVideo/" + fileName;         
+                var check = (model.type == "image") ? new UserDao().UploadImage(acc.UserId, srcFile) : new UserDao().UploadVideo(acc.UserId, srcFile);
                 if (check)
                 {
+                    if(model.type != "image")
+                    {
+                        return Json(new
+                        {
+                            status = true,
+                            linkVideo = srcFile
+                        });
+                    }
                     return Json(new
                     {
                         status = true,
@@ -322,6 +295,34 @@ namespace CareerWeb.Controllers
                 }
                 saveName.Remove(saveName.Length - 1);
             }
+            var stringURL = ShowEnterprise[0].UrlAddress;
+            var indexFirst = -1; /// Dấu @
+            for(var i = 0; i < stringURL.Length; i += 1)
+            {
+                if(stringURL[i] == '@')
+                {
+                    indexFirst = i;
+                    break;
+                }
+            }
+            var indexSecond = -1;
+            var indexThird = -1;
+            for(var i = indexFirst + 1; i < stringURL.Length; i += 1)
+            {
+                if(stringURL[i] == ',')
+                {
+                    if (indexSecond == -1) indexSecond = i;
+                    else
+                    {
+                        indexThird = i;
+                        break;
+                    }
+                }
+            }
+            var xPoint = stringURL.Substring(indexFirst + 1, indexSecond - indexFirst - 1);
+            var yPoint = stringURL.Substring(indexSecond + 1, indexThird - indexSecond - 1);
+            ViewBag.xPoint = xPoint;
+            ViewBag.yPoint = yPoint;
             ViewBag.ListFullJobName = saveName;
             ViewBag.ShowContainer = new OfferJobDao().ShowContainer(EnterpriseID);
             return View(ShowEnterprise);

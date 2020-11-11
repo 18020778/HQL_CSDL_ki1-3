@@ -8,9 +8,9 @@ namespace Model.Models
     public class FormEnterpriseFull
     {
         public Guid EnterpriseID { set; get; }
-        public String EnterpriseName { set; get; }
-        public String ImageLogo { set; get; }
-        public String NameArea { set; get; }
-        public List<int> listJobId { set; get; }
+        public string EnterpriseName { set; get; }
+        public string ImageLogo { set; get; }
+        public string NameArea { set; get; }
+        public string listJob { set; get; }
     }
 }

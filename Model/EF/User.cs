@@ -44,8 +44,7 @@ namespace Model.EF
 
         public double? GPA { get; set; }
 
-        [StringLength(200)]
-        public string CVLink { get; set; }
+        public int? Experience { get; set; }
 
         public int? Salary { get; set; }
 
@@ -58,5 +57,7 @@ namespace Model.EF
 
         [StringLength(200)]
         public string VideoProfile { get; set; }
+
+        public int? LevelLearning { get; set; }
     }
 }

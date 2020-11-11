@@ -1,5 +1,4 @@
-﻿@*@model List<Model.EF.OfferJob>*@
-@model PagedList.IPagedList<Model.EF.OfferJob>
+﻿@model PagedList.IPagedList<Model.Models.OfferFilter>
 @using PagedList
 @using PagedList.Mvc
 @using Model.Dao
@@ -101,8 +100,8 @@
                              style="position: absolute; float: right; margin-left: 75%; padding-top: 5px"></i>
             </div>
             <form style="font-size: 1.2em; margin: 0.3em;">
-                <input type="radio" name="selectGender" value="male"> Nữ<br>
-                <input type="radio" name="selectGender" value="female"> Nam<br>
+                <input type="radio" name="selectGender" value="Female"> Nữ<br>
+                <input type="radio" name="selectGender" value="Male"> Nam<br>
             </form>
         </div>
         <div id="education" class="borderColJobMenu" style="margin-top: 2em;">
@@ -134,7 +133,7 @@
             foreach (var item in Model)
             {
                 var linkImage = item.OfferImage;
-                <a href="/OfferDetail/@item.OfferID" style="color: black; text-decoration: none;">
+                <a href="/ResultForSearchJob/@item.OfferID" style="color: black; text-decoration: none;">
                     <div class="jobContainer" >
                         <div id="@item.OfferID"></div>
                         <div class="logo">

@@ -19,5 +19,7 @@ namespace Model.Models
         public List<int> listJobId { set; get; }
         public List<OfferJob> listContainerJob { set; get; }
         public string Description { set; get; }
+        public string UrlAddress { set; get; }
+        public string AddressName { set; get; }
     }
 }

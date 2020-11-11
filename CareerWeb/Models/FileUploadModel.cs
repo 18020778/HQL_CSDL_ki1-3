@@ -7,6 +7,7 @@ namespace CareerWeb.Models
 {
     public class FileUploadModel
     {
-        public HttpPostedFileBase ImageFile { get; set; }
+        public HttpPostedFileBase UploadFile { get; set; }
+        public string type { set; get; }
     }
 }

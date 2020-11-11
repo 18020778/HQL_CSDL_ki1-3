@@ -95,7 +95,7 @@
 }
 
 img {
-    height: auto;
+    height: 140px;
     max-width: 100%;
 }
 
@@ -245,8 +245,8 @@ a {
 .job-wrap {
     float: left;
     width: 100%;
-    border: 1px solid #ececec;
-    padding: 15px;
+    border: 1px solid black;
+    background-color: #ebedeb;
     position: relative;
 }
 
@@ -425,4 +425,8 @@ label.star:before {
     display: inline-block;
     background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2232%22%20height%3D%2232%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cpath%20fill%3D%22%23ffc106%22%20stroke%3D%22%23ebebeb%22%20d%3D%22M20.6%2011l-4.6-10.5-4.6%2010.5h-10.8l7.8%207.9-3%2012.1%2010.6-6%2010.6%206-3-12.1%207.8-7.9z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E);
     background-size: cover;
+}
+#map{
+    width: 650px;
+    height: 650px;
 }

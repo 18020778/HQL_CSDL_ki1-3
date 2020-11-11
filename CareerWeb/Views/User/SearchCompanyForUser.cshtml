@@ -1,5 +1,4 @@
-﻿@*@model List<Model.Models.FormEnterpriseFull>*@
-@model PagedList.IPagedList<Model.Models.FormEnterpriseFull>
+﻿@model PagedList.IPagedList<Model.Models.FormEnterpriseFull>
 @using Model.Dao
 @using PagedList.Mvc
 @{
@@ -119,7 +118,7 @@
                                                 <a href="/ResultForSearchCompany/@item.EnterpriseID" style="color: black; text-decoration: none;">
                                                     <div class="career-table-row" style="height: auto">
                                                         <div class="career-table-cell" style="width: 25%;">
-                                                            <img src="@item.ImageLogo" class="employer-image" style="height: 160px!important;">
+                                                            <img src="@item.ImageLogo" class="employer-image">
                                                         </div>
                                                         <div class="company-info career-table-cell" style="width: 65%; float:left; margin-top: 10px; margin-left: 20px">
 
@@ -128,7 +127,7 @@
                                                             </h2>
                                                             <small>
                                                                 <div class="link-to-company">
-                                                                    @ViewBag.ListFullJobName[count]
+                                                                    @item.listJob
                                                                 </div>
                                                             </small>
                                                             <br />

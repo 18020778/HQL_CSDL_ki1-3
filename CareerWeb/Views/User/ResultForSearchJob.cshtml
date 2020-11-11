@@ -12,10 +12,10 @@
     <link href="~/Assets/Client/Css/User/ResultForSearchJob.css" rel="stylesheet" />
 }
 
-<div id="path">
+@*<div id="path">
     <a href="" style="color: #f07e1d;"><i class="fa fa-home"></i> Việc làm </a>
     <span> / Cẩm nang nghề nghiệp /...</span>
-</div>
+</div>*@
 
 
 @if (Model != null && Model.Count != 0)
@@ -80,8 +80,8 @@
                         <b style="color: white;">Thưởng:</b>
                         <span style="color: rgb(255, 230, 0);">@(item.Bonus != null? item.Bonus: "0") USD</span>
                     </div>
-                    <div class="button" id="applyJob">NỘP HỒ SƠ</div>
-                    <div class="button" id="saveJob">LƯU VIỆC LÀM</div>
+                    @*<div class="button" id="applyJob">NỘP HỒ SƠ</div>
+                    <div class="button" id="saveJob">LƯU VIỆC LÀM</div>*@
                 </div>
             </div>
             <div class="contentJob" id="employmentInfo">

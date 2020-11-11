@@ -97,6 +97,10 @@ namespace Model.EF
                 .Property(e => e.Code)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Enterprise>()
+                .Property(e => e.UrlAddress)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Interview>()
                 .Property(e => e.UserID)
                 .IsUnicode(false);
@@ -151,10 +155,6 @@ namespace Model.EF
 
             modelBuilder.Entity<User>()
                 .Property(e => e.School)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<User>()
-                .Property(e => e.CVLink)
                 .IsUnicode(false);
 
             modelBuilder.Entity<User>()

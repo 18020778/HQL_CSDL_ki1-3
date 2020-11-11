@@ -285,6 +285,7 @@ button {
 
 .career-employer-list ul li {
     list-style: none;
+    background-color: #ebedeb;
 }
 .employer:hover {
     cursor: pointer;
@@ -295,7 +296,7 @@ button {
     position: relative;
     height: 155px;
     width: 100%;
-    border: 1px solid #ececec;
+    border: 1px solid black;
 }
  #clearAll {
      color: orangered;
@@ -306,9 +307,8 @@ button {
  }
 .employer-image {
     background-size:cover;
-    padding: 15px;
     width: 100%;
-    height: 100%;
+    height: 152px;
 }
 
 .employer-table-layer {

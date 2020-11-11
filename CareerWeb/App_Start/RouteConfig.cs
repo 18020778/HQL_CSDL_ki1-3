@@ -65,7 +65,7 @@ namespace CareerWeb
 
             routes.MapRoute(
                  name: "ResultForSearchJob",
-                 url: "OfferDetail/{OfferID}",
+                 url: "ResultForSearchJob/{OfferID}",
                  defaults: new { controller = "User", action = "ResultForSearchJob", id = UrlParameter.Optional },
                  namespaces: new[] { "CareerWeb.Controllers" }
             );

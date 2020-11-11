@@ -617,10 +617,11 @@
         if (!file || !file[0]) {
             alert("Bạn cần chọn hình ảnh!");
         }
-        data.append("ImageFile", file[0]);
+        data.append("UploadFile", file[0]);
+        data.append("type", "image");
         $.ajax({
             data: data,
-            url: '/User/ImageUpload',
+            url: '/User/FileUpload',
             dataType: 'json',
             method: 'POST',
             contentType: false,
@@ -630,6 +631,41 @@
             success: function (res) {
                 if (res.status) {
                     alert("Upload ảnh thành công!");
+                }
+                else {
+                    alert("Hệ thống gặp trục trặc");
+                }
+            }
+        })
+    })
+    ///Upload Video
+    $("#video #save-video").click(function () {
+        var file = $("#video #video-upload").get(0).files;
+        var data = new FormData;
+        if (!file || !file[0]) {
+            alert("Bạn cần chọn video!");
+            return;
+        }
+        data.append("UploadFile", file[0]);
+        data.append("type", "video");
+        $.ajax({
+            data: data,
+            url: '/User/FileUpload',
+            dataType: 'json',
+            method: 'POST',
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+            },
+            success: function (res) {
+                if (res.status) {
+                    $("#display-video").remove();
+                    alert("Upload video thành công!");
+                    var html = $(`<video controls id="display-video">
+                                      <source src = "` + res.linkVideo + `" type = "video/mp4" />
+                                      <source src = "` + res.linkVideo + `" type = "video/ogg" />
+                                  </video>`);
+                    $(html).insertBefore("#video #video-upload");
                 }
                 else {
                     alert("Hệ thống gặp trục trặc");
@@ -656,6 +692,11 @@
         if (File && File[0]) {
             ReadImage(File[0]);
         }
+    })
+    $().click(function () {
+
+    })
+    $().change(function () {
     })
     //Limit length Select
     $("select").focus(function () {

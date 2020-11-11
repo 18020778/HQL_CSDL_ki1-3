@@ -70,3 +70,15 @@ C:\Users\DELL\source\repos\HQT-CSDL\CareerWeb\Model\bin\Debug\EntityFramework.Sq
 C:\Users\DELL\source\repos\HQT-CSDL\CareerWeb\Model\bin\Debug\EntityFramework.xml
 C:\Users\DELL\source\repos\HQT-CSDL\CareerWeb\Model\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\DELL\source\repos\HQT-CSDL\CareerWeb\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\Model.dll.config
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\Model.dll
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\Model.pdb
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\EntityFramework.dll
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\EntityFramework.xml
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\obj\Debug\Model.dll
+C:\Users\DELL\source\repos\HQL_CSDL_ki1-3\Model\obj\Debug\Model.pdb

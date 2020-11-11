@@ -10,15 +10,15 @@
 }
 
 <div id="wrap">
-    <div id="row">
+    @*<div id="row">
         <a id="viec-lam" class="rower" href="#">Việc làm</a>/<a id="nha-tuyen-dung" class="rower" href="#">Nhà tuyển dụng</a>
         /<span id="tim-ho-so" class="rower">Tìm hồ sơ ứng viên</span>
-    </div>
+    </div>*@
 
     <div id="main">
         <div id="search">
             <form>
-                <input type="text" id="key-word" class="former" placeholder="Tên ứng viên" onchange="checkName()" />
+                <input type="text" id="key-word" name="key-word" class="former" placeholder="Tên ứng viên" onchange="checkName()" />
             </form>
             <form>
                 <input class="former" placeholder="Lĩnh vực" name="linhvuc" list="OfferMajor" id="linhvuc" />
@@ -40,7 +40,9 @@
                 </datalist>
             </form>
             <br/>
-            <div id="tim-ho-so" class="former">Tìm hồ sơ</div>
+            <form>
+                <button id="tim-ho-so" class="former">Tìm hồ sơ</button>
+            </form>
         </div>
 
         <div id="xu-ly">

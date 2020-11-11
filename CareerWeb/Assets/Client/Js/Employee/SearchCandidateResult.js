@@ -1,8 +1,4 @@
-﻿$(document).ready(function () {
-    checkSaveFile();
-})
-
-
+﻿
 
 var AreaID = 0, JobID = 0, Name = 0;
 
@@ -14,7 +10,6 @@ $(document).ready(function () {
         $("#search-more").slideToggle(500);
     });
     $("#tim-ho-so").click(function () {
-        alert(1);
         var area = ($('#dia-diem :selected').val() != null) ? $('#dia-diem :selected').val() : 0;
         var job = ($('#linh-vuc option:selected').val() != null) ? $('#linh-vuc option:selected').val() : 0;
         alert(job);
@@ -71,24 +66,24 @@ function setSelectValue() {
 }
 
 
-function saveFile() {
-    var element = $(event.target);
-    var userId = element.attr("stt");
-    $.ajax({
-        data: { userId: userId },
-        url: '/Employee/SaveCandidate',
-        dataType: 'json',
-        method: 'POST',
-        beforeSend: function () {
+//function saveFile() {
+//    var element = $(event.target);
+//    var userId = element.attr("stt");
+//    $.ajax({
+//        data: { userId: userId },
+//        url: '/Employee/SaveCandidate',
+//        dataType: 'json',
+//        method: 'POST',
+//        beforeSend: function () {
 
-        },
-        success: function (res) {
-            if (res.status == true) {
-                element.text("Đã lưu hồ sơ");
-            }
-        }
-    })
-}
+//        },
+//        success: function (res) {
+//            if (res.status == true) {
+//                element.text("Đã lưu hồ sơ");
+//            }
+//        }
+//    })
+//}
 
 function checkSaveFile() {
     var element = $(".save-button");

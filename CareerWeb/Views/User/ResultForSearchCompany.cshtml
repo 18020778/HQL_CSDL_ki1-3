@@ -15,7 +15,7 @@
     <div class="career-subheader">
         <span class="banner"></span>
     </div>
-    <div class="main-content" style="margin-top: 185px">
+    <div class="main-content" style="margin-top: 185px" addressName ="@Model[0].AddressName" xPoint ="@ViewBag.xPoint" yPoint ="@ViewBag.yPoint">
         <div class="main-section">
             @if (Model != null)
             {
@@ -126,8 +126,10 @@
             }
         </div>
     </div>
+    <div id="map"></div>
 </div>
 @section jsInsert{
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="~/Assets/Client/Js/User/ResultForSearchCompany.js"></script>
 }
 

@@ -548,3 +548,8 @@ main #load-cover{
 .each-skill .delete-skill:hover{
     color: white;
 }
+#display-video{
+    width: 75%;
+    float: left;
+    margin-bottom: 20px;
+}
